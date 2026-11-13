@@ -6,11 +6,11 @@
   "source_inputs": [
     {
       "path": "engineering/standards/PCB_RULE_PROFILE.md",
-      "sha256": "7d3ce8e81dfa06652abfb62a5200c3e59d6e55c81d5f00fa439913d6402f7466"
+      "sha256": "b135527ec2c60b11e42ac6a0486a0b9e3ca8d32a05b677ef4522ca1656cf3b8d"
     },
     {
       "path": "engineering/standards/PCB_LAYOUT_ROUTING.md",
-      "sha256": "87633fdd7a8696edb81ea92c40b4ca10fcdca7aa04aaccb604338a61ac3f6bab"
+      "sha256": "6bc7f4482540ff2692234aad43e21e38f4c67f4b9de961e61f343500d5a7b8f5"
     },
     {
       "path": "engineering/standards/SOURCES.md",
@@ -18,7 +18,7 @@
     },
     {
       "path": "engineering/WORKFLOW.md",
-      "sha256": "1e2a09c06b52a83c60e95b4825ee2c5e38690280a6f283bc2d80c3da3ff2e23f"
+      "sha256": "7d8d6554631dd63a852d67c3f15c78d262201cf104db029abf319f1d8c14fcdd"
     },
     {
       "path": "engineering/notes/PCB_LAYOUT_RULES_RESEARCH_20261028.md",
@@ -30,11 +30,11 @@
     },
     {
       "path": "engineering/PROJECT_TEMPLATE/PCB_REVIEW.md",
-      "sha256": "d670c2bebccdf62d7b36339fb3c2e70cfc9cca87c007a7f74c2d06e59ac599bb"
+      "sha256": "96ac2f1e12479cd82872d6ed03bbe31cf97e355ebf4cf39982db766f9ee4512a"
     },
     {
       "path": "engineering/tools/check_pcb_rule_gate.py",
-      "sha256": "505a44dc22e4819841797d1ebe3f19815b0f2e02a8bb3ed821b1ecbcb710a7fd"
+      "sha256": "d8ae419d15803901704e8d7a240dde1e392c55b98dd8010d3b940b9c68d5e724"
     },
     {
       "path": "engineering/standards/SCHEMATIC_STYLE.md",
@@ -58,15 +58,15 @@
     },
     {
       "path": "engineering/standards/PCB_STAGE_REVIEW.md",
-      "sha256": "bc15660010f4873419b7e0653c15250649c73a0f8bb49d63d03f5a568df3e529"
+      "sha256": "bbad30c61bac6abd82cd9202863dfeeb451b8e1f7d692ef845e7293775daec3a"
     },
     {
       "path": "engineering/PROJECT_TEMPLATE/PCB_STAGE_REVIEW.json",
-      "sha256": "189e1394151e052c356c83f79d586cdc0cf6dc9eb360d4dfb87a50160d659e65"
+      "sha256": "47bef508eddc3801c2c52f7333ad9ce46d93180bda9e8baa0844ed2b4e9302c8"
     },
     {
       "path": "engineering/tools/check_pcb_stage.py",
-      "sha256": "2bf3bb69a441de637d9a64051670e300243260d4dc108e1ff0e123a2e7ad01b0"
+      "sha256": "4ea105f4a658c2a94200e634919e903c32c2bd1a499974d531c59945ac21f668"
     },
     {
       "path": "engineering/notes/MLCC_PACKAGE_EFFECTIVE_CAPACITANCE_20261104.md",
@@ -81,7 +81,7 @@
       "sha256": "3502e352d5842bf0518de10a20c98f266741215fca2d61b771ab38859bca1282"
     }
   ],
-  "updated": "2026-11-04",
+  "updated": "2026-11-13",
   "name": "embedded-hardware-design",
   "previous_name": "pcb-design-rules",
   "upstream_skills": [
@@ -150,5 +150,11 @@
     "date": "2026-11-04",
     "source": "User request for automatic hardware-task selection and visible usage",
     "scope": "Allow implicit invocation; read installed entry/version and applicable references before announcing actual version and scope; report evidence and pending checks. Local user/workspace AGENTS pointers supplement discovery. No claim of guaranteed future invocation or hardware validation."
+  },
+  "pcb_power_plane_geometry": {
+    "date": "2026-11-13",
+    "rule": "PCB-P10",
+    "source": "User instruction",
+    "scope": "Prefer rectangular or simple orthogonal power regions on native inner plane layers; document necessary mechanical splits and verify clearances, minimum copper width, connectivity, return paths, and Gerber. No board-level DRC is implied."
   }
 }

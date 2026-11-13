@@ -22,6 +22,7 @@
     "PCB-R07": {"status": "not_checked", "evidence": [], "rationale": ""},
     "PCB-R11/R12": {"status": "not_checked", "evidence": [], "rationale": ""},
     "PCB-P09": {"status": "not_checked", "evidence": [], "rationale": ""},
+    "PCB-P10": {"status": "not_checked", "evidence": [], "rationale": ""},
     "PCB-R14/R17": {"status": "not_checked", "evidence": [], "rationale": ""},
     "PCB-L21": {"status": "not_checked", "evidence": [], "rationale": ""},
     "PCB-V02": {"status": "not_checked", "evidence": [], "rationale": ""},

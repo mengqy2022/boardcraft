@@ -37,6 +37,9 @@ class StageReviewTests(unittest.TestCase):
             layout["stage"] = "layout"
             layout["checks"] = {k: layout["checks"][k] for k in LAYOUT_CHECKS}
             check(layout, True)
+            layout_without_partition_review = copy.deepcopy(layout)
+            del layout_without_partition_review["checks"]["PCB-P10"]
+            check(layout_without_partition_review)
             self.assertTrue(validate(target, pcb, "final"))
             missing_pin = copy.deepcopy(report)
             missing_pin["power_pins"].clear()
@@ -47,6 +50,9 @@ class StageReviewTests(unittest.TestCase):
             failed = copy.deepcopy(report)
             failed["checks"]["PCB-V04"]["status"] = "fail"
             check(failed)
+            missing_partition_review = copy.deepcopy(report)
+            del missing_partition_review["checks"]["PCB-P10"]
+            check(missing_partition_review)
             unchecked = copy.deepcopy(report)
             del unchecked["checks"]["PCB-L01/L17/L20"]
             check(unchecked)

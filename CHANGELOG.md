@@ -1,5 +1,15 @@
 # 变更记录
 
+## Unreleased
+
+- 新增PCB-P10：原生内电层电源分区使用矩形或简洁正交规则几何；必要机械避让拆为规则子区域，并核对净距、最小铜宽、回流和Gerber。
+- 将PCB-P10加入布局与最终阶段核验门槛、项目规则模板和可携带Skill；未修改EDA工程或宣称任何PCB通过检查。
+
+### English
+
+- Added PCB-P10: use rectangular or simple orthogonal geometry for power regions on native inner plane layers; split necessary mechanical clearances into regular subregions and verify clearance, minimum copper width, return paths, and Gerbers.
+- Added PCB-P10 to layout/final review gates, the project rules template, and the portable skill. No EDA project was changed or certified.
+
 ## 2.4.1 — 2026-11-04
 
 - 显式允许按任务自动选用；新增可见使用约定，任务开始实际读取Skill/版本和适用参考后说明名称、版本及规则范围，交付时列实际检查、未验证项和证据。
