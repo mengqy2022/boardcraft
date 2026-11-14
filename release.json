@@ -1,6 +1,6 @@
 {
   "name": "embedded-hardware-design",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "sha256": {
     ".gitattributes": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
     ".gitignore": "d85e869880ce59f80b6ff556112ef93ea215e5966f8a1633cbaac84b28e26889",
@@ -17,7 +17,7 @@
     "assets/SCHEMATIC_REVIEW.md": "40d5a2d8d15cef2cf019fe135d18114cdc00248ee6e4837d806445a0f6654301",
     "assets/cover.svg": "538503ff4061f163a7817207509ba75e1128e0364cff5f59b87e6c3fb22d48ad",
     "docs/INSTALLATION.md": "173d36d5486719fb1f4a7e8c21de98317c48bf26aa134451451300b94a107872",
-    "provenance.json": "3b6f28e3348d1b2a014459471d5a6714657c5165d703d4e5032282e5d73f3a72",
+    "provenance.json": "8420d3aa1e514fd0b85de7de63bd34ec230caef2456e4c6a90430f4552a42495",
     "references/design-workflow.md": "a74a42144d85592f6d77bdf4cc612b22085ae1be1a4141b581131d5cc2d5e7e7",
     "references/differential-crystal.md": "ce3b3a8a4aa8ccd7005ac518ee44843467d9b770e573f8abb973ddd7e802533b",
     "references/easyeda-schematic.md": "a54193505b1e8fa623029d63ae6d68e4f4c90f64e379047c89639307858d5869",

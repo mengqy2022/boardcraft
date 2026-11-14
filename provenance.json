@@ -1,5 +1,5 @@
 {
-  "version": "2.4.1",
+  "version": "2.4.2",
   "created": "2026-11-01",
   "origin": "Reviewed workspace standards, existing primary-source records, and observed user-authored layout methods",
   "scope": "Portable schematic and PCB methods with user defaults; private project circuits, screenshots and source documents are excluded",
@@ -10,7 +10,7 @@
     },
     {
       "path": "engineering/standards/PCB_LAYOUT_ROUTING.md",
-      "sha256": "cc8a7bfe98a1803bc333345fd92284f8a25674ca8db23cbaabc4b04cac83bbfb"
+      "sha256": "545ed27b81f52065fc3c2d51e3fe0145b7a09e98087bab845b256798e1730ce6"
     },
     {
       "path": "engineering/standards/SOURCES.md",
@@ -156,6 +156,12 @@
     "rule": "PCB-P10",
     "source": "User instruction",
     "scope": "Prefer rectangular or simple orthogonal power regions on native inner plane layers; document necessary mechanical splits and verify clearances, minimum copper width, connectivity, return paths, and Gerber. No board-level DRC is implied."
+  },
+  "pcb_layer_reference_selection": {
+    "date": "2026-11-14",
+    "rule": "PCB-P09",
+    "source": "User correction during four-layer PCB design",
+    "scope": "Select layer order from the actual differential routing layer and return path. For bottom-layer differential routing, prefer the adjacent inner layer as continuous GND reference and the other inner layer for power; ordinary and slow routing must not disrupt that channel or return. This is a reusable routing preference, not a fixed manufacturer stackup or an impedance guarantee."
   },
   "pcb_silkscreen_pad_clearance_review": {
     "date": "2026-11-14",
