@@ -6,11 +6,11 @@
   "source_inputs": [
     {
       "path": "engineering/standards/PCB_RULE_PROFILE.md",
-      "sha256": "b135527ec2c60b11e42ac6a0486a0b9e3ca8d32a05b677ef4522ca1656cf3b8d"
+      "sha256": "469b683d32e4f3a43b98a0e6c91ff50896e9a76d86d7331e95e97090e527f8c1"
     },
     {
       "path": "engineering/standards/PCB_LAYOUT_ROUTING.md",
-      "sha256": "6bc7f4482540ff2692234aad43e21e38f4c67f4b9de961e61f343500d5a7b8f5"
+      "sha256": "cc8a7bfe98a1803bc333345fd92284f8a25674ca8db23cbaabc4b04cac83bbfb"
     },
     {
       "path": "engineering/standards/SOURCES.md",
@@ -30,7 +30,7 @@
     },
     {
       "path": "engineering/PROJECT_TEMPLATE/PCB_REVIEW.md",
-      "sha256": "96ac2f1e12479cd82872d6ed03bbe31cf97e355ebf4cf39982db766f9ee4512a"
+      "sha256": "1b36eb06346106b12ae062048d664c7453b7592f04eb5245e80fe3d7d3764dec"
     },
     {
       "path": "engineering/tools/check_pcb_rule_gate.py",
@@ -58,7 +58,7 @@
     },
     {
       "path": "engineering/standards/PCB_STAGE_REVIEW.md",
-      "sha256": "bbad30c61bac6abd82cd9202863dfeeb451b8e1f7d692ef845e7293775daec3a"
+      "sha256": "718bf214108fcf5eb1f2dc9c481d0d582645d40d5b7fc9b263603a8a250e060b"
     },
     {
       "path": "engineering/PROJECT_TEMPLATE/PCB_STAGE_REVIEW.json",
