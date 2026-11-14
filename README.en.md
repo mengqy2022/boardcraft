@@ -22,13 +22,14 @@ Portable rules, review templates, and evidence gates for AI-assisted embedded ha
 **Unreleased on `main` · 2026-11-14:** PCB-V02 now sets Arial as the workspace default for silkscreen and visible component text, with readable size/stroke and clearance checks; PCB-V04 keeps independent same-net physical pads separated and connected by compliant copper; PCB-P09 selects a four-layer order from the actual differential layer and return path, preferring a continuous adjacent inner GND reference for bottom-layer differential routing. Accumulated under [Unreleased](CHANGELOG.md#unreleased); the stable release below remains v2.4.1 and its assets do not include these changes.
 
 <!-- release:start -->
-**[v2.4.1](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.1) · 2026-11-04**
+**[v2.4.2](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.2) · 2026-11-14**
 
+- PCB workflow refinements from the manual PCB3_1 review: require separate rule-gate and current-revision EDA DRC evidence; permit documented power zones on SIGNAL layers including four-SIGNAL-layer boards; keep native PLANE terminology distinct; treat locked objects as mechanical baselines; and calculate 90 ohm differential geometry from the confirmed fabrication stackup. The PCB3_1 design itself was not modified.
 - Explicitly allow implicit selection and announce the actual skill version and applicable references after reading them; report completed checks, unverified items and evidence at delivery.
 - Document workspace/user instruction entrypoints and ordinary ChatGPT usage; avoid unrelated tasks, disclose missing files, and distinguish usage announcements from engineering results.
 - Refresh bilingual release docs, packages and local instructions without changing v2.4.0 electrical rules. Configuration checks do not prove future invocation or board correctness.
 
-[All changes](CHANGELOG.md) · [Release assets and checksums](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.1)
+[All changes](CHANGELOG.md) · [Release assets and checksums](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.2)
 <!-- release:end -->
 
 ## What this provides

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 2026-11-14：新增 PCB-V08 双门槛：工作区规则门禁与当前版 EDA DRC 必须分别运行、分别留证并同时通过；补充 PCB-P09/P10 对 SIGNAL 层电源区域的允许条件、PCB-P11 锁定机械基准，以及 PCB-R14 依据真实叠层计算 90 Ω 差分线宽。未修改当前手动 PCB3_1。
+
 - 2026-11-14：补充PCB-V02的Arial统一字体、适配字号/笔画、孔与开窗避让和同面走线投影优先避让；区分可读性偏好与电气间距。
 - 补充PCB-V04：独立同网焊盘保持分离，用合规铜线连接，不以重叠/相接代替连线；保留GND铺铜接入和厂家复合物理单焊盘的准确含义。
 - 将检查接入阶段证据、项目模板与Skill入口；本次只读学习用户手动结果，不改板、不继承历史DRC。日常规则累计于main，不新增Release。
@@ -11,6 +13,8 @@
 
 ### English
 
+- 2026-11-14: add PCB-V08 as a dual gate: the workspace rule gate and current-revision EDA DRC must run separately, retain separate evidence, and both pass. Clarify SIGNAL-layer power regions under PCB-P09/P10, locked mechanical baselines under PCB-P11, and stackup-based 90 ohm differential sizing under PCB-R14. The manually edited PCB3_1 was not modified.
+
 - 2026-11-14: use Arial for PCB silkscreen and visible component text, size strokes and characters for readability/fabrication, clear holes and mask openings, and prefer same-side track-free text placement without treating that preference as electrical clearance.
 - Keep independent same-net solder lands separate and connect them with compliant tracks; retain the existing ground-pour workflow and distinguish a single physical compound pad from overlapping independent pads.
 - Add evidence checks to the stage review and project template. Learn from the manually edited board read-only; do not reuse historical DRC results or create another Release for this routine update.
@@ -18,14 +22,13 @@
 - Clarified PCB-P09: choose the four-layer order from the actual differential layer and return path; when differential routing is on Bottom, prefer the adjacent inner layer as a continuous GND reference and use the other inner layer for power, while keeping ordinary/slow routing away from the differential channel and return path. This remains an Unreleased main update and does not create a new Release.
 - Added PCB-P10 to layout/final review gates, the project rules template, and the portable skill. No EDA project was changed or certified.
 
-## 2.4.1 — 2026-11-04
+## 2.4.2 — 2026-11-14
 
-- 显式允许按任务自动选用；新增可见使用约定，任务开始实际读取Skill/版本和适用参考后说明名称、版本及规则范围，交付时列实际检查、未验证项和证据。
-- 安装说明补充工作区/用户级指令入口与普通ChatGPT用法；无关任务不强制加载，缺少文件时说明，使用声明不作为EDA或实测通过证据。
-- 同步双语README、发布包和本机配置。保留2.4.0工程规则，未来自动选用须通过真实任务观察，配置/包校验不保证每次运行或板级结果。
+- PCB workflow refinements from the manual PCB3_1 review: require separate rule-gate and current-revision EDA DRC evidence; permit documented power zones on SIGNAL layers including four-SIGNAL-layer boards; keep native PLANE terminology distinct; treat locked objects as mechanical baselines; and calculate 90 ohm differential geometry from the confirmed fabrication stackup. The PCB3_1 design itself was not modified.
 
 ### English
 
+- PCB workflow refinements from the manual PCB3_1 review: require separate rule-gate and current-revision EDA DRC evidence; permit documented power zones on SIGNAL layers including four-SIGNAL-layer boards; keep native PLANE terminology distinct; treat locked objects as mechanical baselines; and calculate 90 ohm differential geometry from the confirmed fabrication stackup. The PCB3_1 design itself was not modified.
 - Explicitly allow implicit selection and announce the actual skill version and applicable references after reading them; report completed checks, unverified items and evidence at delivery.
 - Document workspace/user instruction entrypoints and ordinary ChatGPT usage; avoid unrelated tasks, disclose missing files, and distinguish usage announcements from engineering results.
 - Refresh bilingual release docs, packages and local instructions without changing v2.4.0 electrical rules. Configuration checks do not prove future invocation or board correctness.

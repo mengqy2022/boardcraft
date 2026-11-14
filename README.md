@@ -22,13 +22,11 @@
 **main 待发布规则 · 2026-11-14：** PCB-V02统一Arial并按空间/工艺调整字号、避让孔和焊盘开窗、尽量避开走线；PCB-V04要求独立同网焊盘分离，以合规铜线连接；PCB-P09按差分所在层和回流确定四层顺序，底层差分优先使用相邻内层的连续GND参考。与此前PCB-P10一并累计于[Unreleased](CHANGELOG.md#unreleased)，已发布稳定版仍为下方v2.4.1；Release附件尚不包含这些main更新。
 
 <!-- release:start -->
-**[v2.4.1](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.1) · 2026-11-04**
+**[v2.4.2](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.2) · 2026-11-14**
 
-- 显式允许按任务自动选用；新增可见使用约定，任务开始实际读取Skill/版本和适用参考后说明名称、版本及规则范围，交付时列实际检查、未验证项和证据。
-- 安装说明补充工作区/用户级指令入口与普通ChatGPT用法；无关任务不强制加载，缺少文件时说明，使用声明不作为EDA或实测通过证据。
-- 同步双语README、发布包和本机配置。保留2.4.0工程规则，未来自动选用须通过真实任务观察，配置/包校验不保证每次运行或板级结果。
+- PCB workflow refinements from the manual PCB3_1 review: require separate rule-gate and current-revision EDA DRC evidence; permit documented power zones on SIGNAL layers including four-SIGNAL-layer boards; keep native PLANE terminology distinct; treat locked objects as mechanical baselines; and calculate 90 ohm differential geometry from the confirmed fabrication stackup. The PCB3_1 design itself was not modified.
 
-[完整变更记录](CHANGELOG.md) · [安装包与校验文件](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.1)
+[完整变更记录](CHANGELOG.md) · [安装包与校验文件](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.2)
 <!-- release:end -->
 
 ## 能解决什么

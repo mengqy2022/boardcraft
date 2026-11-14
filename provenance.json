@@ -171,5 +171,11 @@
     ],
     "source": "User-authored EasyEDA board read read-only; screenshot/native project details are excluded from the portable package",
     "scope": "Arial is a workspace/user default with size and stroke selected for purpose and fabrication. Prefer clearance from holes, mask openings and same-side trace projections for legibility. Keep independent same-net physical pads separated and connect with compliant copper; do not confuse compound lands, GND pours or DRC with assembly verification. Current board was not edited and DRC was not run."
+  },
+  "pcb_rule_gate_and_layer_semantics": {
+    "date": "2026-11-14",
+    "rules": ["PCB-V08", "PCB-P09", "PCB-P10", "PCB-P11", "PCB-R14"],
+    "source": "User clarification during PCB3_1 review",
+    "scope": "Require separate workspace rule-gate and current-revision EDA DRC evidence. Permit four SIGNAL layers and SIGNAL-layer power regions when documented as actual copper zones; require PLANE only when native inner-plane semantics are explicitly requested. Do not infer a 90 ohm differential width from a fixed mil value; calculate from the confirmed stackup. Treat locked components, interfaces, board outline and holes as mechanical baselines and compare before/after. No EDA board was modified."
   }
 }
