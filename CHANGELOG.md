@@ -2,11 +2,17 @@
 
 ## Unreleased
 
+- 2026-11-14：补充PCB-V02的Arial统一字体、适配字号/笔画、孔与开窗避让和同面走线投影优先避让；区分可读性偏好与电气间距。
+- 补充PCB-V04：独立同网焊盘保持分离，用合规铜线连接，不以重叠/相接代替连线；保留GND铺铜接入和厂家复合物理单焊盘的准确含义。
+- 将检查接入阶段证据、项目模板与Skill入口；本次只读学习用户手动结果，不改板、不继承历史DRC。日常规则累计于main，不新增Release。
 - 新增PCB-P10：原生内电层电源分区使用矩形或简洁正交规则几何；必要机械避让拆为规则子区域，并核对净距、最小铜宽、回流和Gerber。
 - 将PCB-P10加入布局与最终阶段核验门槛、项目规则模板和可携带Skill；未修改EDA工程或宣称任何PCB通过检查。
 
 ### English
 
+- 2026-11-14: use Arial for PCB silkscreen and visible component text, size strokes and characters for readability/fabrication, clear holes and mask openings, and prefer same-side track-free text placement without treating that preference as electrical clearance.
+- Keep independent same-net solder lands separate and connect them with compliant tracks; retain the existing ground-pour workflow and distinguish a single physical compound pad from overlapping independent pads.
+- Add evidence checks to the stage review and project template. Learn from the manually edited board read-only; do not reuse historical DRC results or create another Release for this routine update.
 - Added PCB-P10: use rectangular or simple orthogonal geometry for power regions on native inner plane layers; split necessary mechanical clearances into regular subregions and verify clearance, minimum copper width, return paths, and Gerbers.
 - Added PCB-P10 to layout/final review gates, the project rules template, and the portable skill. No EDA project was changed or certified.
 

@@ -19,6 +19,8 @@
 
 ## 最新进展
 
+**main 待发布规则 · 2026-11-14：** PCB-V02统一Arial并按空间/工艺调整字号、避让孔和焊盘开窗、尽量避开走线；PCB-V04要求独立同网焊盘分离，以合规铜线连接。与此前PCB-P10一并累计于[Unreleased](CHANGELOG.md#unreleased)，已发布稳定版仍为下方v2.4.1；Release附件尚不包含这些main更新。
+
 <!-- release:start -->
 **[v2.4.1](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.1) · 2026-11-04**
 

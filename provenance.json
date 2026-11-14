@@ -81,7 +81,7 @@
       "sha256": "3502e352d5842bf0518de10a20c98f266741215fca2d61b771ab38859bca1282"
     }
   ],
-  "updated": "2026-11-13",
+  "updated": "2026-11-14",
   "name": "embedded-hardware-design",
   "previous_name": "pcb-design-rules",
   "upstream_skills": [
@@ -156,5 +156,14 @@
     "rule": "PCB-P10",
     "source": "User instruction",
     "scope": "Prefer rectangular or simple orthogonal power regions on native inner plane layers; document necessary mechanical splits and verify clearances, minimum copper width, connectivity, return paths, and Gerber. No board-level DRC is implied."
+  },
+  "pcb_silkscreen_pad_clearance_review": {
+    "date": "2026-11-14",
+    "rules": [
+      "PCB-V02",
+      "PCB-V04"
+    ],
+    "source": "User-authored EasyEDA board read read-only; screenshot/native project details are excluded from the portable package",
+    "scope": "Arial is a workspace/user default with size and stroke selected for purpose and fabrication. Prefer clearance from holes, mask openings and same-side trace projections for legibility. Keep independent same-net physical pads separated and connect with compliant copper; do not confuse compound lands, GND pours or DRC with assembly verification. Current board was not edited and DRC was not run."
   }
 }
