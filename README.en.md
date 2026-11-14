@@ -19,7 +19,7 @@ Portable rules, review templates, and evidence gates for AI-assisted embedded ha
 
 ## Latest release
 
-**Unreleased on `main` · 2026-11-14:** PCB-V02 now sets Arial as the workspace default for silkscreen and visible component text, with readable size/stroke and clearance checks; PCB-V04 keeps independent same-net physical pads separated and connected by compliant copper. Accumulated under [Unreleased](CHANGELOG.md#unreleased); the stable release below remains v2.4.1 and its assets do not include these changes.
+**Unreleased on `main` · 2026-11-14:** PCB-V02 now sets Arial as the workspace default for silkscreen and visible component text, with readable size/stroke and clearance checks; PCB-V04 keeps independent same-net physical pads separated and connected by compliant copper; PCB-P09 selects a four-layer order from the actual differential layer and return path, preferring a continuous adjacent inner GND reference for bottom-layer differential routing. Accumulated under [Unreleased](CHANGELOG.md#unreleased); the stable release below remains v2.4.1 and its assets do not include these changes.
 
 <!-- release:start -->
 **[v2.4.1](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.1) · 2026-11-04**
