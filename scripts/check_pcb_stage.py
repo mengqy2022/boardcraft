@@ -5,10 +5,13 @@ import json
 import re
 from pathlib import Path
 
-LAYOUT_CHECKS = {"INVENTORY", "PCB-P01", "PCB-P10", "PCB-V04", "PCB-L01/L17/L20", "PCB-L18", "PCB-R18"}
+LAYOUT_CHECKS = {
+    "INVENTORY", "RULE_GATE", "PCB-P01", "PCB-P09", "PCB-P10", "PCB-P11",
+    "PCB-V04", "PCB-L01/L17/L20", "PCB-L18", "PCB-R18",
+}
 FINAL_CHECKS = LAYOUT_CHECKS | {
     "NETLIST", "CONNECTIVITY", "DRC", "PCB-G06/G08", "PCB-R07", "PCB-R11/R12",
-    "PCB-P09", "PCB-R14/R17", "PCB-L21", "PCB-V02", "PCB-V06", "FAB",
+    "PCB-R14/R17", "PCB-L21", "PCB-V02", "PCB-V06", "PI", "SI", "EMC", "THERMAL", "FAB",
 }
 
 
@@ -86,7 +89,7 @@ def validate(report_path, current_pcb, expected_stage=None):
         errors.append("checks must be an object")
     required = FINAL_CHECKS if stage == "final" else LAYOUT_CHECKS
     for key in sorted(required):
-        reviewed(key, checks.get(key), allow_na=key not in {"INVENTORY", "PCB-P01", "PCB-V04", "NETLIST", "CONNECTIVITY", "DRC", "PCB-R07", "PCB-V02", "FAB"})
+        reviewed(key, checks.get(key), allow_na=key not in {"INVENTORY", "RULE_GATE", "PCB-P01", "PCB-V04", "NETLIST", "CONNECTIVITY", "DRC", "PCB-R07", "PCB-V02", "FAB"})
     for key in ("components", "power_pins"):
         values = inventory.get(key)
         if not isinstance(values, list) or any(not isinstance(v, str) or not v.strip() for v in values):

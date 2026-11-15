@@ -28,7 +28,7 @@ description: 嵌入式原理图绘制、排版、电气审查与 PCB 布局布�
 - **PCB 布局布线**：必读 [布局与制造](references/layout-manufacturing.md)及[电源与接地](references/power-ground.md)；按[阶段门槛](references/pcb-stage-review.md)核验，参数记录在[项目配置模板](assets/PROJECT_RULES.md)或现有项目规则中。
 - **电源、GND、去耦或电容封装选型**：读 [电源与接地](references/power-ground.md)。区分并联拓扑、低电感回路与布局偏好；按PCB-L22核对准确MPN在工作条件下的有效电容，不用封装固定容值上限。
 - **差分线、等长或晶振**：读 [差分与晶振](references/differential-crystal.md)。
-- **核验与交付**：读 [核验与证据](references/verification.md)。
+- **核验与交付**：读 [核验与证据](references/verification.md)；按PCB-V09分别覆盖电气连接、PI、SI、EMC风险、热及制造/装配。设计审查、计算/仿真、制造核查与样机/合规结论分开，按风险选择方法。
 - **借鉴工程版式或处理排版规则冲突**：读 [样本方法与取舍](references/schematic-examples.md)，按规模选单页/层次图，区分视觉观察与电气证据。
 - **查证参数或更新规则**：读 [来源及适用边界](references/sources.md)，再定向查准确原厂原页。
 - **安装、迁移或工作方式插件**：读 [使用说明](README.md)和 [可选插件](OPTIONAL_PLUGINS.md)。

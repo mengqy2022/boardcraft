@@ -32,11 +32,36 @@ class StageReviewTests(unittest.TestCase):
                 self.assertEqual(not validate(target, pcb), allowed)
 
             check(report, True)
+            # Core gates cannot be omitted or waived; engineering categories need
+            # current evidence even when genuinely inapplicable to a simple board.
+            for key in ("RULE_GATE", "DRC", "PCB-P11", "PI", "SI", "EMC", "THERMAL", "FAB"):
+                with self.subTest(missing_check=key):
+                    missing = copy.deepcopy(report)
+                    del missing["checks"][key]
+                    check(missing)
+            for key in ("RULE_GATE", "DRC"):
+                with self.subTest(waived_core_gate=key):
+                    waived = copy.deepcopy(report)
+                    waived["checks"][key]["status"] = "not_applicable"
+                    check(waived)
+            no_si_required = copy.deepcopy(report)
+            no_si_required["checks"]["SI"] = {
+                "status": "not_applicable", "evidence": ["review"],
+                "rationale": "Synthetic passive-board fixture: interface review found no timing-sensitive nets.",
+            }
+            check(no_si_required, True)
+            no_si_required["checks"]["SI"]["evidence"] = []
+            check(no_si_required)
             self.assertTrue(validate(target, pcb, "layout"))
             layout = copy.deepcopy(report)
             layout["stage"] = "layout"
             layout["checks"] = {k: layout["checks"][k] for k in LAYOUT_CHECKS}
             check(layout, True)
+            for key in ("RULE_GATE", "PCB-P09", "PCB-P11"):
+                with self.subTest(missing_layout_gate=key):
+                    incomplete_layout = copy.deepcopy(layout)
+                    del incomplete_layout["checks"][key]
+                    check(incomplete_layout)
             layout_without_partition_review = copy.deepcopy(layout)
             del layout_without_partition_review["checks"]["PCB-P10"]
             check(layout_without_partition_review)

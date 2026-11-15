@@ -77,6 +77,19 @@ class ReleaseDocumentationTests(unittest.TestCase):
             self.assertIn("SHA256SUMS.txt", notes)
             self.assertNotIn("Earlier change", notes)
 
+    def test_unreleased_readme_links_to_source_without_claiming_published_assets(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            self.fixture(root)
+            metadata = {"version": "3.0.0", "release_status": "unreleased", "updated": "2026-11-15"}
+            (root / "provenance.json").write_text(json.dumps(metadata), encoding="utf-8")
+            self.assertFalse(check_readmes(root, write=True))
+            for filename in ("README.md", "README.en.md"):
+                text = (root / filename).read_text(encoding="utf-8")
+                self.assertIn("/tree/main", text)
+                self.assertIn("/releases/latest", text)
+                self.assertNotIn("/releases/tag/v3.0.0", text)
+
     def test_built_assets_and_checksums_match_the_reviewed_package(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)

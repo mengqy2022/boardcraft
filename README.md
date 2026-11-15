@@ -19,14 +19,14 @@
 
 ## 最新进展
 
-**main 待发布规则 · 2026-11-14：** PCB-V02统一Arial并按空间/工艺调整字号、避让孔和焊盘开窗、尽量避开走线；PCB-V04要求独立同网焊盘分离，以合规铜线连接；PCB-P09按差分所在层和回流确定四层顺序，底层差分优先使用相邻内层的连续GND参考。与此前PCB-P10一并累计于[Unreleased](CHANGELOG.md#unreleased)，已发布稳定版仍为下方v2.4.1；Release附件尚不包含这些main更新。
+**main待发布更新 · 2026-11-15：** 已整合三批PCB文章并完成三项原厂核查，补强完整电流回路、ADC/ESD、时序/阻抗及盘中孔工艺；新增PCB-V09六类审查及缺项阻断。main与本机为v2.4.2，最新正式Release仍为[v2.4.1](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.1)，旧附件不含本轮改动。详见[Unreleased](CHANGELOG.md#unreleased)。
 
 <!-- release:start -->
-**[v2.4.2](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.2) · 2026-11-14**
+**[v2.4.2 · main 待发布](https://github.com/mengqy2022/embedded-hardware-design-skill/tree/main) · 2026-11-15**
 
-- PCB workflow refinements from the manual PCB3_1 review: require separate rule-gate and current-revision EDA DRC evidence; permit documented power zones on SIGNAL layers including four-SIGNAL-layer boards; keep native PLANE terminology distinct; treat locked objects as mechanical baselines; and calculate 90 ohm differential geometry from the confirmed fabrication stackup. The PCB3_1 design itself was not modified.
+- main规则基线：分别保留规则门禁与当前版EDA DRC证据；允许有据的四层SIGNAL及其电源铜区，区分原生PLANE；锁定对象作为机械基准；90Ω差分参数按真实叠层计算。未修改PCB3_1，v2.4.2尚未创建正式Release，最新补充见Unreleased。
 
-[完整变更记录](CHANGELOG.md) · [安装包与校验文件](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.2)
+[待发布变更](CHANGELOG.md#unreleased) · [最新正式版与安装包](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/latest)
 <!-- release:end -->
 
 ## 能解决什么

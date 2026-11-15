@@ -27,6 +27,14 @@ def latest_release(root=ROOT):
 
 def summary(root=ROOT, english=False):
     version, date, zh, en = latest_release(root)
+    metadata = json.loads((root / "provenance.json").read_text(encoding="utf-8"))
+    if metadata.get("release_status") == "unreleased":
+        label = "Unreleased main" if english else "main 待发布"
+        heading = f"**[v{version} · {label}]({REPO}/tree/main) · {metadata.get('updated', date)}**"
+        footer = (f"[All changes](CHANGELOG.md#unreleased) · [Latest published release]({REPO}/releases/latest)"
+                  if english else
+                  f"[待发布变更](CHANGELOG.md#unreleased) · [最新正式版与安装包]({REPO}/releases/latest)")
+        return f"{heading}\n\n{en if english else zh}\n\n{footer}"
     heading = f"**[v{version}]({REPO}/releases/tag/v{version}) · {date}**"
     footer = (f"[All changes](CHANGELOG.md) · [Release assets and checksums]({REPO}/releases/tag/v{version})"
               if english else

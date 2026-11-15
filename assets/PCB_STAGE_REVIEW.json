@@ -29,7 +29,11 @@
     "PCB-L21": {"status": "not_checked", "evidence": [], "rationale": ""},
     "PCB-V02": {"status": "not_checked", "evidence": [], "rationale": ""},
     "PCB-V06": {"status": "not_checked", "evidence": [], "rationale": ""},
-    "FAB": {"status": "not_checked", "evidence": [], "rationale": ""}
+    "FAB": {"status": "not_checked", "evidence": [], "rationale": ""},
+    "PI": {"status": "not_checked", "evidence": [], "rationale": ""},
+    "SI": {"status": "not_checked", "evidence": [], "rationale": ""},
+    "EMC": {"status": "not_checked", "evidence": [], "rationale": ""},
+    "THERMAL": {"status": "not_checked", "evidence": [], "rationale": ""}
   },
   "components": {},
   "power_pins": {}

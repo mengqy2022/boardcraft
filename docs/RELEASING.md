@@ -9,6 +9,8 @@
 - `scripts/update_release_docs.py` 从以上内容生成两份 README 的 `release:start/end` 区块。
 - `release.json` 保存人工审阅后的分发文件哈希，`--refresh` 不能替代审阅。
 
+`provenance.json` 的 `release_status: unreleased` 表示main源码/本机规则版本尚未正式发布；README摘要链接到main和最新正式Release，不生成不存在的版本附件链接。批量规则维护保留该状态；正式发布前清除该值或设为published，再生成摘要、核查、打包及创建匹配标签，不回写旧附件。2026-11-15核对GitHub最新正式版仍为v2.4.1，main及本机为v2.4.2。
+
 规则/模板/工具兼容变化采用语义版本。补充说明、维护与兼容修复用补丁版本；明显扩展能力用次版本；需要用户迁移的不兼容变化用主版本。标签形式为 `vX.Y.Z`。
 
 ## 发布节奏与保留策略（2026-11-05）
@@ -36,6 +38,7 @@ GitHub Releases仅保留有使用或迁移意义的里程碑和最新稳定版�
 
 ```powershell
 python scripts/update_release_docs.py
+python scripts/package_skill.py --refresh
 python -m unittest discover -s scripts -p 'test_*.py'
 python scripts/verify_repository.py
 ```

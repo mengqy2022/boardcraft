@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- 2026-11-15：整合三批PCB文章，复用现有编号补强正反电流路径、换流回路、ADC建立、ESD泄放、时钟/差分时序与盘中孔工艺；以TI ADS8860、SLVA680A及JLC官方页核查关键疑问。剔除缺条件的图片评级、固定阻值/尺寸，全文及原图不分发。
+- 新增PCB-V09六类工程审查（电气、PI、SI、EMC风险、热、制造/装配），按风险记录方法、结果及待测项；补齐阶段检查器的RULE_GATE、PCB-P09/P11与PI/SI/EMC/THERMAL必填及RULE_GATE不可豁免检查。旧记录须重审补证据，历史通过范围不变。
+- 修正PCB-P10在SIGNAL电源铜区的适用描述；同步工作区、模板、本机Skill及双语首页。main/本机保持v2.4.2待发布，不新建Release，不改EDA或宣称板级DRC/实测通过。
+
 - 2026-11-14：新增 PCB-V08 双门槛：工作区规则门禁与当前版 EDA DRC 必须分别运行、分别留证并同时通过；补充 PCB-P09/P10 对 SIGNAL 层电源区域的允许条件、PCB-P11 锁定机械基准，以及 PCB-R14 依据真实叠层计算 90 Ω 差分线宽。未修改当前手动 PCB3_1。
 
 - 2026-11-14：补充PCB-V02的Arial统一字体、适配字号/笔画、孔与开窗避让和同面走线投影优先避让；区分可读性偏好与电气间距。
@@ -12,6 +16,10 @@
 - 将PCB-P10加入布局与最终阶段核验门槛、项目规则模板和可携带Skill；未修改EDA工程或宣称任何PCB通过检查。
 
 ### English
+
+- 2026-11-15: consolidate three article batches into existing rules for complete power/return and commutation loops, ADC settling, ESD discharge, clock/differential timing, and via-in-pad fabrication. Cross-check TI ADS8860, SLVA680A and JLCPCB; do not ship the article or images or promote examples into universal values.
+- Add PCB-V09 electrical/PI/SI/EMC-risk/thermal/fabrication review coverage. Enforce RULE_GATE, PCB-P09/P11 and PI/SI/EMC/THERMAL evidence in stage validation; RULE_GATE cannot be waived. Re-review old records rather than filling pass or inheriting historical approvals.
+- Apply PCB-P10 to SIGNAL power zones, refresh workspace/templates/installed skill and bilingual docs. Main/local v2.4.2 remains unreleased; no Release or EDA changes and no board DRC/performance claims.
 
 - 2026-11-14: add PCB-V08 as a dual gate: the workspace rule gate and current-revision EDA DRC must run separately, retain separate evidence, and both pass. Clarify SIGNAL-layer power regions under PCB-P09/P10, locked mechanical baselines under PCB-P11, and stackup-based 90 ohm differential sizing under PCB-R14. The manually edited PCB3_1 was not modified.
 
@@ -24,11 +32,19 @@
 
 ## 2.4.2 — 2026-11-14
 
-- PCB workflow refinements from the manual PCB3_1 review: require separate rule-gate and current-revision EDA DRC evidence; permit documented power zones on SIGNAL layers including four-SIGNAL-layer boards; keep native PLANE terminology distinct; treat locked objects as mechanical baselines; and calculate 90 ohm differential geometry from the confirmed fabrication stackup. The PCB3_1 design itself was not modified.
+- main规则基线：分别保留规则门禁与当前版EDA DRC证据；允许有据的四层SIGNAL及其电源铜区，区分原生PLANE；锁定对象作为机械基准；90Ω差分参数按真实叠层计算。未修改PCB3_1，v2.4.2尚未创建正式Release，最新补充见Unreleased。
 
 ### English
 
 - PCB workflow refinements from the manual PCB3_1 review: require separate rule-gate and current-revision EDA DRC evidence; permit documented power zones on SIGNAL layers including four-SIGNAL-layer boards; keep native PLANE terminology distinct; treat locked objects as mechanical baselines; and calculate 90 ohm differential geometry from the confirmed fabrication stackup. The PCB3_1 design itself was not modified.
+
+## 2.4.1 — 2026-11-04
+
+- 显式允许按任务自动选用，读取实际版本/适用参考后提示使用状态；交付区分实际检查、未验证项及证据。
+- 补充跨工作区指令、普通ChatGPT使用及安装升级说明；包校验不等于EDA或实测通过。
+
+### English
+
 - Explicitly allow implicit selection and announce the actual skill version and applicable references after reading them; report completed checks, unverified items and evidence at delivery.
 - Document workspace/user instruction entrypoints and ordinary ChatGPT usage; avoid unrelated tasks, disclose missing files, and distinguish usage announcements from engineering results.
 - Refresh bilingual release docs, packages and local instructions without changing v2.4.0 electrical rules. Configuration checks do not prove future invocation or board correctness.

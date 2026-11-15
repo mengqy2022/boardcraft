@@ -6,19 +6,19 @@
   "source_inputs": [
     {
       "path": "engineering/standards/PCB_RULE_PROFILE.md",
-      "sha256": "469b683d32e4f3a43b98a0e6c91ff50896e9a76d86d7331e95e97090e527f8c1"
+      "sha256": "dc87178e21ea1649916f6bc25571cd7d5103f3c513f8a0aba8b195cd08c0fb88"
     },
     {
       "path": "engineering/standards/PCB_LAYOUT_ROUTING.md",
-      "sha256": "545ed27b81f52065fc3c2d51e3fe0145b7a09e98087bab845b256798e1730ce6"
+      "sha256": "5c0b30404ae71bba634db26258dcc1d53912b2a91cea137597090f0166405c5f"
     },
     {
       "path": "engineering/standards/SOURCES.md",
-      "sha256": "d3b8cdd24c1571067773cf034bc9ca54cca913e95b1efd5bfc6bb0fa887b4156"
+      "sha256": "8119217312b14f6e60d439002977ab22c097545317adb9effa24a6d8046c3883"
     },
     {
       "path": "engineering/WORKFLOW.md",
-      "sha256": "7d8d6554631dd63a852d67c3f15c78d262201cf104db029abf319f1d8c14fcdd"
+      "sha256": "37411239c6f76ce360a099e5797ecb58605d1c83e8d089ab2e447c4a40aeb18e"
     },
     {
       "path": "engineering/notes/PCB_LAYOUT_RULES_RESEARCH_20261028.md",
@@ -30,11 +30,11 @@
     },
     {
       "path": "engineering/PROJECT_TEMPLATE/PCB_REVIEW.md",
-      "sha256": "1b36eb06346106b12ae062048d664c7453b7592f04eb5245e80fe3d7d3764dec"
+      "sha256": "10b6b1beb2105ba8f6cd57ec68413934c730e5f588520f4f402b5066ed45d9bf"
     },
     {
       "path": "engineering/tools/check_pcb_rule_gate.py",
-      "sha256": "d8ae419d15803901704e8d7a240dde1e392c55b98dd8010d3b940b9c68d5e724"
+      "sha256": "259f6b2695ff056b14733b26c235d0dab52a873383bf12c96e3aaddfe4ef23d2"
     },
     {
       "path": "engineering/standards/SCHEMATIC_STYLE.md",
@@ -58,15 +58,15 @@
     },
     {
       "path": "engineering/standards/PCB_STAGE_REVIEW.md",
-      "sha256": "718bf214108fcf5eb1f2dc9c481d0d582645d40d5b7fc9b263603a8a250e060b"
+      "sha256": "8973fdd94ec72ca7ca6319637747f3866018b959dc2580baef53aee7cf7d68a3"
     },
     {
       "path": "engineering/PROJECT_TEMPLATE/PCB_STAGE_REVIEW.json",
-      "sha256": "47bef508eddc3801c2c52f7333ad9ce46d93180bda9e8baa0844ed2b4e9302c8"
+      "sha256": "382654f9b65295145a268ab4b1403b7294931f158518cb20659e5d463615edac"
     },
     {
       "path": "engineering/tools/check_pcb_stage.py",
-      "sha256": "4ea105f4a658c2a94200e634919e903c32c2bd1a499974d531c59945ac21f668"
+      "sha256": "4c271592c40f542e440f764124eedb949314692dae54daa697d318b298572464"
     },
     {
       "path": "engineering/notes/MLCC_PACKAGE_EFFECTIVE_CAPACITANCE_20261104.md",
@@ -79,9 +79,17 @@
     {
       "path": "engineering/PROJECT_TEMPLATE/DESIGN_EVIDENCE.md",
       "sha256": "3502e352d5842bf0518de10a20c98f266741215fca2d61b771ab38859bca1282"
+    },
+    {
+      "path": "engineering/notes/PCB_ARTICLE_REVIEW_20261115.md",
+      "sha256": "3ba278843fedc2b256e168448f08c46e6ff56253ae00f12f87e7cdc98b9b6476"
+    },
+    {
+      "path": "engineering/notes/PCB_ARTICLE_PRIMARY_CHECK_20261115.md",
+      "sha256": "d6cec3e1f622ef73ab77763e9f47ebf2e818adf6b561a47c4ba7621503986e2e"
     }
   ],
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "name": "embedded-hardware-design",
   "previous_name": "pcb-design-rules",
   "upstream_skills": [
@@ -174,8 +182,32 @@
   },
   "pcb_rule_gate_and_layer_semantics": {
     "date": "2026-11-14",
-    "rules": ["PCB-V08", "PCB-P09", "PCB-P10", "PCB-P11", "PCB-R14"],
+    "rules": [
+      "PCB-V08",
+      "PCB-P09",
+      "PCB-P10",
+      "PCB-P11",
+      "PCB-R14"
+    ],
     "source": "User clarification during PCB3_1 review",
     "scope": "Require separate workspace rule-gate and current-revision EDA DRC evidence. Permit four SIGNAL layers and SIGNAL-layer power regions when documented as actual copper zones; require PLANE only when native inner-plane semantics are explicitly requested. Do not infer a 90 ohm differential width from a fixed mil value; calculate from the confirmed stackup. Treat locked components, interfaces, board outline and holes as mechanical baselines and compare before/after. No EDA board was modified."
+  },
+  "release_status": "unreleased",
+  "revision": "20261115-pcb-engineering-review",
+  "pcb_article_integration": {
+    "date": "2026-11-15",
+    "source": "User-supplied three batches; original article URL/author not confirmed",
+    "rules": [
+      "PCB-V09",
+      "PCB-P03/P08",
+      "PCB-L06/L07/L08/L09/L10",
+      "PCB-R12/R14/R17"
+    ],
+    "primary_sources": [
+      "S17: TI ADS8860 SBAS569B p31-33",
+      "S18: TI SLVA680A p4/6-8",
+      "S19: JLCPCB Via Covering sections 2/3/4"
+    ],
+    "scope": "Original method summaries only; no vendor originals or user images. Review coverage and executable gate corrections, not EDA edits or hardware approval."
   }
 }
