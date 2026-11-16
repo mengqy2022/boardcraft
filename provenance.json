@@ -89,7 +89,7 @@
       "sha256": "d6cec3e1f622ef73ab77763e9f47ebf2e818adf6b561a47c4ba7621503986e2e"
     }
   ],
-  "updated": "2026-11-15",
+  "updated": "2026-11-16",
   "name": "embedded-hardware-design",
   "previous_name": "pcb-design-rules",
   "upstream_skills": [
@@ -192,7 +192,7 @@
     "source": "User clarification during PCB3_1 review",
     "scope": "Require separate workspace rule-gate and current-revision EDA DRC evidence. Permit four SIGNAL layers and SIGNAL-layer power regions when documented as actual copper zones; require PLANE only when native inner-plane semantics are explicitly requested. Do not infer a 90 ohm differential width from a fixed mil value; calculate from the confirmed stackup. Treat locked components, interfaces, board outline and holes as mechanical baselines and compare before/after. No EDA board was modified."
   },
-  "release_status": "unreleased",
+  "release_status": "published",
   "revision": "20261115-pcb-engineering-review",
   "pcb_article_integration": {
     "date": "2026-11-15",
@@ -209,5 +209,6 @@
       "S19: JLCPCB Via Covering sections 2/3/4"
     ],
     "scope": "Original method summaries only; no vendor originals or user images. Review coverage and executable gate corrections, not EDA edits or hardware approval."
-  }
+  },
+  "release_date": "2026-11-16"
 }

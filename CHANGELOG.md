@@ -2,41 +2,27 @@
 
 ## Unreleased
 
-- 2026-11-15：整合三批PCB文章，复用现有编号补强正反电流路径、换流回路、ADC建立、ESD泄放、时钟/差分时序与盘中孔工艺；以TI ADS8860、SLVA680A及JLC官方页核查关键疑问。剔除缺条件的图片评级、固定阻值/尺寸，全文及原图不分发。
-- 新增PCB-V09六类工程审查（电气、PI、SI、EMC风险、热、制造/装配），按风险记录方法、结果及待测项；补齐阶段检查器的RULE_GATE、PCB-P09/P11与PI/SI/EMC/THERMAL必填及RULE_GATE不可豁免检查。旧记录须重审补证据，历史通过范围不变。
-- 修正PCB-P10在SIGNAL电源铜区的适用描述；同步工作区、模板、本机Skill及双语首页。main/本机保持v2.4.2待发布，不新建Release，不改EDA或宣称板级DRC/实测通过。
+- 暂无待发布变更。 / No pending changes.
 
-- 2026-11-14：新增 PCB-V08 双门槛：工作区规则门禁与当前版 EDA DRC 必须分别运行、分别留证并同时通过；补充 PCB-P09/P10 对 SIGNAL 层电源区域的允许条件、PCB-P11 锁定机械基准，以及 PCB-R14 依据真实叠层计算 90 Ω 差分线宽。未修改当前手动 PCB3_1。
+## 2.4.2 — 2026-11-16
 
-- 2026-11-14：补充PCB-V02的Arial统一字体、适配字号/笔画、孔与开窗避让和同面走线投影优先避让；区分可读性偏好与电气间距。
-- 补充PCB-V04：独立同网焊盘保持分离，用合规铜线连接，不以重叠/相接代替连线；保留GND铺铜接入和厂家复合物理单焊盘的准确含义。
-- 将检查接入阶段证据、项目模板与Skill入口；本次只读学习用户手动结果，不改板、不继承历史DRC。日常规则累计于main，不新增Release。
-- 新增PCB-P10：原生内电层电源分区使用矩形或简洁正交规则几何；必要机械避让拆为规则子区域，并核对净距、最小铜宽、回流和Gerber。
-- 补充PCB-P09：四层顺序按差分所在层和实际回流确定；底层差分优先让相邻内层保持连续GND参考，另一内层承担电源，普通/慢速线不得破坏差分通道或回流。该更新累计于main的Unreleased，不新增Release。
-- 将PCB-P10加入布局与最终阶段核验门槛、项目规则模板和可携带Skill；未修改EDA工程或宣称任何PCB通过检查。
-
-### English
-
-- 2026-11-15: consolidate three article batches into existing rules for complete power/return and commutation loops, ADC settling, ESD discharge, clock/differential timing, and via-in-pad fabrication. Cross-check TI ADS8860, SLVA680A and JLCPCB; do not ship the article or images or promote examples into universal values.
-- Add PCB-V09 electrical/PI/SI/EMC-risk/thermal/fabrication review coverage. Enforce RULE_GATE, PCB-P09/P11 and PI/SI/EMC/THERMAL evidence in stage validation; RULE_GATE cannot be waived. Re-review old records rather than filling pass or inheriting historical approvals.
-- Apply PCB-P10 to SIGNAL power zones, refresh workspace/templates/installed skill and bilingual docs. Main/local v2.4.2 remains unreleased; no Release or EDA changes and no board DRC/performance claims.
-
-- 2026-11-14: add PCB-V08 as a dual gate: the workspace rule gate and current-revision EDA DRC must run separately, retain separate evidence, and both pass. Clarify SIGNAL-layer power regions under PCB-P09/P10, locked mechanical baselines under PCB-P11, and stackup-based 90 ohm differential sizing under PCB-R14. The manually edited PCB3_1 was not modified.
-
-- 2026-11-14: use Arial for PCB silkscreen and visible component text, size strokes and characters for readability/fabrication, clear holes and mask openings, and prefer same-side track-free text placement without treating that preference as electrical clearance.
-- Keep independent same-net solder lands separate and connect them with compliant tracks; retain the existing ground-pour workflow and distinguish a single physical compound pad from overlapping independent pads.
-- Add evidence checks to the stage review and project template. Learn from the manually edited board read-only; do not reuse historical DRC results or create another Release for this routine update.
-- Added PCB-P10: use rectangular or simple orthogonal geometry for power regions on native inner plane layers; split necessary mechanical clearances into regular subregions and verify clearance, minimum copper width, return paths, and Gerbers.
-- Clarified PCB-P09: choose the four-layer order from the actual differential layer and return path; when differential routing is on Bottom, prefer the adjacent inner layer as a continuous GND reference and use the other inner layer for power, while keeping ordinary/slow routing away from the differential channel and return path. This remains an Unreleased main update and does not create a new Release.
-- Added PCB-P10 to layout/final review gates, the project rules template, and the portable skill. No EDA project was changed or certified.
-
-## 2.4.2 — 2026-11-14
-
-- main规则基线：分别保留规则门禁与当前版EDA DRC证据；允许有据的四层SIGNAL及其电源铜区，区分原生PLANE；锁定对象作为机械基准；90Ω差分参数按真实叠层计算。未修改PCB3_1，v2.4.2尚未创建正式Release，最新补充见Unreleased。
+- 新增 PCB-V09 六类工程审查：电气连接、电源完整性、信号完整性、EMC 风险、热及制造/装配；按项目风险选择审查、计算、仿真和实测，明确各自结论边界。
+- 修正 PCB-V07 阶段检查器：布局/最终阶段要求 RULE_GATE、PCB-P09/P10/P11，最终补齐 PI/SI/EMC/THERMAL 等证据；规则门禁及最终 DRC 不可用“不适用”跳过。旧记录缺项或证据过期必须重审补证，不能批量填通过。
+- 新增 PCB-V08 双门槛：规则门禁与当前修订版 EDA DRC 分别运行、分别留证并同时通过；检查器只验证覆盖和文件新鲜度，不替代实际工程判断。
+- 整合三批 PCB 学习资料，以 TI ADS8860、SLVA680A 和 JLCPCB 官方资料定向核查；补强完整供电/回流、换流回路、ADC 建立、ESD 泄放、时钟/差分时序及盘中孔工艺，剔除缺条件的固定数值与图片评级。只分发原创总结与来源链接。
+- 明确 PCB-P09/P10：记录真实层类型；允许有据的四层 SIGNAL 和规则几何电源铜区，区分原生 PLANE。参考地按实际差分所在层确定，90 Ω 参数依据实际制造叠层计算。
+- 补充 PCB-P11 锁定机械基准、PCB-V02 Arial 与丝印避让、PCB-V04 独立同网焊盘分离；更新模板、双语首页和可携带安装包。
+- 升级提示：旧阶段记录需要补齐新增适用项及当前修订证据。保持现有规则编号和 JSON 结构；不修改用户 PCB，不追溯升级历史板卡检查结论，也不代表任何板卡通过 DRC、性能实测或制造放行。
 
 ### English
 
-- PCB workflow refinements from the manual PCB3_1 review: require separate rule-gate and current-revision EDA DRC evidence; permit documented power zones on SIGNAL layers including four-SIGNAL-layer boards; keep native PLANE terminology distinct; treat locked objects as mechanical baselines; and calculate 90 ohm differential geometry from the confirmed fabrication stackup. The PCB3_1 design itself was not modified.
+- Add PCB-V09 reviews for electrical connectivity, power integrity, signal integrity, EMC risk, thermal, and fabrication/assembly; select reviews, calculations, simulation and measurements proportionately to project risk and state their limits.
+- Correct the PCB-V07 stage checker: require RULE_GATE and PCB-P09/P10/P11 at layout/final, plus PI/SI/EMC/THERMAL and existing evidence at final. Neither the rule gate nor final DRC can be waived as not applicable. Re-review incomplete or stale records rather than bulk-marking them passed.
+- Add PCB-V08: run the rule gate and current-revision EDA DRC independently, retain separate evidence, and require both to pass. Coverage and freshness checks do not replace engineering judgment.
+- Consolidate three PCB article batches with focused checks against TI ADS8860, SLVA680A and JLCPCB. Strengthen complete supply/return and commutation loops, ADC settling, ESD discharge, clock/differential timing, and via-in-pad fabrication; reject context-free numerical rules and diagram rankings. Distribute original summaries and source links only.
+- Clarify actual SIGNAL/PLANE layer semantics, documented regular power zones and four-SIGNAL-layer boards under PCB-P09/P10. Select the reference from the actual differential routing layer and calculate 90 ohm geometry from the fabrication stackup.
+- Extend PCB-P11 mechanical baselines, PCB-V02 Arial/silkscreen clearances and PCB-V04 separate same-net solder lands; refresh templates, bilingual documentation and portable packages.
+- Upgrade: existing stage records need newly required applicable items and current-revision evidence. Preserve rule identifiers and JSON structure. No user PCB changes, retroactive board approvals, or claims of DRC, measured performance or fabrication release.
 
 ## 2.4.1 — 2026-11-04
 

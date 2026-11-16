@@ -19,14 +19,20 @@
 
 ## 最新进展
 
-**main待发布更新 · 2026-11-15：** 已整合三批PCB文章并完成三项原厂核查，补强完整电流回路、ADC/ESD、时序/阻抗及盘中孔工艺；新增PCB-V09六类审查及缺项阻断。main与本机为v2.4.2，最新正式Release仍为[v2.4.1](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.1)，旧附件不含本轮改动。详见[Unreleased](CHANGELOG.md#unreleased)。
+**v2.4.2 正式版 · 2026-11-16：** 本轮集中发布规则门禁与 DRC 双验收、六类工程审查、阶段检查器修正，以及层叠/回流、去耦和制造规则整理。已有阶段记录需按新要求补证；详见下方摘要与[版本记录](CHANGELOG.md)。
 
 <!-- release:start -->
-**[v2.4.2 · main 待发布](https://github.com/mengqy2022/embedded-hardware-design-skill/tree/main) · 2026-11-15**
+**[v2.4.2](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.2) · 2026-11-16**
 
-- main规则基线：分别保留规则门禁与当前版EDA DRC证据；允许有据的四层SIGNAL及其电源铜区，区分原生PLANE；锁定对象作为机械基准；90Ω差分参数按真实叠层计算。未修改PCB3_1，v2.4.2尚未创建正式Release，最新补充见Unreleased。
+- 新增 PCB-V09 六类工程审查：电气连接、电源完整性、信号完整性、EMC 风险、热及制造/装配；按项目风险选择审查、计算、仿真和实测，明确各自结论边界。
+- 修正 PCB-V07 阶段检查器：布局/最终阶段要求 RULE_GATE、PCB-P09/P10/P11，最终补齐 PI/SI/EMC/THERMAL 等证据；规则门禁及最终 DRC 不可用“不适用”跳过。旧记录缺项或证据过期必须重审补证，不能批量填通过。
+- 新增 PCB-V08 双门槛：规则门禁与当前修订版 EDA DRC 分别运行、分别留证并同时通过；检查器只验证覆盖和文件新鲜度，不替代实际工程判断。
+- 整合三批 PCB 学习资料，以 TI ADS8860、SLVA680A 和 JLCPCB 官方资料定向核查；补强完整供电/回流、换流回路、ADC 建立、ESD 泄放、时钟/差分时序及盘中孔工艺，剔除缺条件的固定数值与图片评级。只分发原创总结与来源链接。
+- 明确 PCB-P09/P10：记录真实层类型；允许有据的四层 SIGNAL 和规则几何电源铜区，区分原生 PLANE。参考地按实际差分所在层确定，90 Ω 参数依据实际制造叠层计算。
+- 补充 PCB-P11 锁定机械基准、PCB-V02 Arial 与丝印避让、PCB-V04 独立同网焊盘分离；更新模板、双语首页和可携带安装包。
+- 升级提示：旧阶段记录需要补齐新增适用项及当前修订证据。保持现有规则编号和 JSON 结构；不修改用户 PCB，不追溯升级历史板卡检查结论，也不代表任何板卡通过 DRC、性能实测或制造放行。
 
-[待发布变更](CHANGELOG.md#unreleased) · [最新正式版与安装包](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/latest)
+[完整变更记录](CHANGELOG.md) · [安装包与校验文件](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.2)
 <!-- release:end -->
 
 ## 能解决什么

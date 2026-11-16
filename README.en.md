@@ -19,14 +19,20 @@ Portable rules, review templates, and evidence gates for AI-assisted embedded ha
 
 ## Latest release
 
-**Unreleased main update · 2026-11-15:** Consolidated three PCB article batches with three official-source checks; strengthened full current loops, ADC/ESD, timing/impedance and via-in-pad decisions. PCB-V09 adds six-category review evidence and blocks missing gates. Main/local is v2.4.2; the latest published Release remains [v2.4.1](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.1), whose assets do not contain these changes. See [Unreleased](CHANGELOG.md#unreleased).
+**v2.4.2 stable · 2026-11-16:** This release consolidates independent rule-gate/DRC acceptance, six-category engineering reviews, corrected stage validation, and layer/return, decoupling and fabrication guidance. Existing stage records need the newly required evidence; see the summary below and [changelog](CHANGELOG.md).
 
 <!-- release:start -->
-**[v2.4.2 · Unreleased main](https://github.com/mengqy2022/embedded-hardware-design-skill/tree/main) · 2026-11-15**
+**[v2.4.2](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.2) · 2026-11-16**
 
-- PCB workflow refinements from the manual PCB3_1 review: require separate rule-gate and current-revision EDA DRC evidence; permit documented power zones on SIGNAL layers including four-SIGNAL-layer boards; keep native PLANE terminology distinct; treat locked objects as mechanical baselines; and calculate 90 ohm differential geometry from the confirmed fabrication stackup. The PCB3_1 design itself was not modified.
+- Add PCB-V09 reviews for electrical connectivity, power integrity, signal integrity, EMC risk, thermal, and fabrication/assembly; select reviews, calculations, simulation and measurements proportionately to project risk and state their limits.
+- Correct the PCB-V07 stage checker: require RULE_GATE and PCB-P09/P10/P11 at layout/final, plus PI/SI/EMC/THERMAL and existing evidence at final. Neither the rule gate nor final DRC can be waived as not applicable. Re-review incomplete or stale records rather than bulk-marking them passed.
+- Add PCB-V08: run the rule gate and current-revision EDA DRC independently, retain separate evidence, and require both to pass. Coverage and freshness checks do not replace engineering judgment.
+- Consolidate three PCB article batches with focused checks against TI ADS8860, SLVA680A and JLCPCB. Strengthen complete supply/return and commutation loops, ADC settling, ESD discharge, clock/differential timing, and via-in-pad fabrication; reject context-free numerical rules and diagram rankings. Distribute original summaries and source links only.
+- Clarify actual SIGNAL/PLANE layer semantics, documented regular power zones and four-SIGNAL-layer boards under PCB-P09/P10. Select the reference from the actual differential routing layer and calculate 90 ohm geometry from the fabrication stackup.
+- Extend PCB-P11 mechanical baselines, PCB-V02 Arial/silkscreen clearances and PCB-V04 separate same-net solder lands; refresh templates, bilingual documentation and portable packages.
+- Upgrade: existing stage records need newly required applicable items and current-revision evidence. Preserve rule identifiers and JSON structure. No user PCB changes, retroactive board approvals, or claims of DRC, measured performance or fabrication release.
 
-[All changes](CHANGELOG.md#unreleased) · [Latest published release](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/latest)
+[All changes](CHANGELOG.md) · [Release assets and checksums](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.2)
 <!-- release:end -->
 
 ## What this provides
