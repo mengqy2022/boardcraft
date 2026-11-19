@@ -4,6 +4,25 @@
 
 - 暂无待发布变更。 / No pending changes.
 
+## 3.0.0 — 2026-11-19
+
+- 引入有证据的器件/网络分类、profile目录和任务规则清单；按真实叠层、接口、边沿/传播、RF/FPC对象组合模块，未知项不能默认为不存在。
+- 新增只读规则路由器及覆盖/快照检查，拒绝缺失分类证据、遗漏模块和过期源文件；不修改EDA、自动放宽DRC或把分类检查当电气认证。
+- 新增丝印、RF、FPC专项入口，审查用户资料中的比例/数值/绝对化说法；板厂限定数值保留待核查状态，不把附件原文/图片放入发布包。
+- 接入工作区级rftools-mcp 2.11.3和固定提交的drawio-engineering-mcp：本地计算、图示、EDA编辑各自路由，远程仿真/文件上传不默认开放；记录实际版本差异和SVG占位导出限制。
+- 新增独立嘉立创EDA按键LED板实例、器件和选值说明、逐段原理图连线/PCB布线动图及能力评估；动态图仅保留图纸/板框，回放如实标注，不冒充首次录屏。
+- 保留SCH/PCB编号与V07/V08/V09独立核验，补充库关联、真实引脚/焊盘、API缓存/孔径与生产文件交叉检查。旧项目按当前修订重分类，不追溯批量填通过。
+- 更新双语README、完整使用指南、迁移和发布说明；发布包不含密钥、第三方MCP源码及私人历史工程。RF/FPC实板、制造放行与样机实测未由本版证明。
+
+### English
+
+- Add evidence-backed component/net inventories and composable task modules. Unknown high-speed, RF and FPC classifications remain unresolved instead of silently disabling checks.
+- Add a read-only rule router and snapshot/coverage validator, with regression tests for mixed boards, missing evidence, stale snapshots and tampered module selections. Routing is separate from native DRC and engineering acceptance.
+- Add silkscreen, RF and FPC review entrypoints, triaging context-dependent manufacturing numbers and rejecting unsupported universal claims. Original attachments and third-party images are excluded.
+- Document workspace-scoped rftools 2.11.3 and pinned drawio MCP integration, local calculation defaults, remote-service boundaries, observed version mismatch and placeholder SVG export.
+- Add a real EasyEDA button LED tutorial with component explanations, electrical calculations, wiring/routing replay GIFs and a bounded capability assessment. Refresh bilingual documentation, migration and checksummed release packaging.
+- Preserve existing rule IDs and independent V07/V08/V09 reviews. No retroactive project approvals, RF/FPC board validation, fabricated measurement results or manufacturing release claims.
+
 ## 2.4.2 — 2026-11-16
 
 - 新增 PCB-V09 六类工程审查：电气连接、电源完整性、信号完整性、EMC 风险、热及制造/装配；按项目风险选择审查、计算、仿真和实测，明确各自结论边界。

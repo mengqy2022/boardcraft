@@ -1,5 +1,5 @@
 {
-  "version": "2.4.2",
+  "version": "3.0.0",
   "created": "2026-11-01",
   "origin": "Reviewed workspace standards, existing primary-source records, and observed user-authored layout methods",
   "scope": "Portable schematic and PCB methods with user defaults; private project circuits, screenshots and source documents are excluded",
@@ -89,7 +89,7 @@
       "sha256": "d6cec3e1f622ef73ab77763e9f47ebf2e818adf6b561a47c4ba7621503986e2e"
     }
   ],
-  "updated": "2026-11-16",
+  "updated": "2026-11-19",
   "name": "embedded-hardware-design",
   "previous_name": "pcb-design-rules",
   "upstream_skills": [
@@ -193,7 +193,7 @@
     "scope": "Require separate workspace rule-gate and current-revision EDA DRC evidence. Permit four SIGNAL layers and SIGNAL-layer power regions when documented as actual copper zones; require PLANE only when native inner-plane semantics are explicitly requested. Do not infer a 90 ohm differential width from a fixed mil value; calculate from the confirmed stackup. Treat locked components, interfaces, board outline and holes as mechanical baselines and compare before/after. No EDA board was modified."
   },
   "release_status": "published",
-  "revision": "20261115-pcb-engineering-review",
+  "revision": "20261119-routing-mcp-tutorial",
   "pcb_article_integration": {
     "date": "2026-11-15",
     "source": "User-supplied three batches; original article URL/author not confirmed",
@@ -210,5 +210,14 @@
     ],
     "scope": "Original method summaries only; no vendor originals or user images. Review coverage and executable gate corrections, not EDA edits or hardware approval."
   },
-  "release_date": "2026-11-16"
+  "release_date": "2026-11-19",
+  "v3_integration": {
+    "scope": "Evidence-backed module routing, silkscreen/FPC source triage, RF tool routing and independent EasyEDA beginner tutorial",
+    "source_status": "User attachments text reviewed; external images not all fetched; FPC numerical limits not manufacturer-certified",
+    "mcp": {
+      "rftools": "2.11.3 MIT",
+      "drawio_commit": "8599aeb0d1118ef1d1cc0933812d892030a2c4bf AGPL-3.0-or-later"
+    },
+    "boundary": "Tool source code, user attachments and private project data excluded from portable package"
+  }
 }

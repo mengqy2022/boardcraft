@@ -101,3 +101,7 @@ For upgrades, back up and move the existing folder outside the host's scanned sk
 For ordinary ChatGPT, upload `HARDWARE_DESIGN_RULES_CHATGPT.md` with your project constraints. Live EDA control requires separate tools. Optional workflow plugins are not installed by this package. Pin a release and commit when reproducing a project; updating these rules does not revalidate an existing PCB.
 
 Implicit invocation is explicitly allowed in `agents/openai.yaml`. Add the hardware-task instruction to a supported workspace or user instruction file. At task start, read the installed entrypoint/version and relevant references, then announce the actual version and scope; at delivery, state completed checks, pending items and evidence. This is observable guidance, not a guarantee of future selection or engineering correctness.
+
+## v3模块与MCP
+
+见[完整指南](V3_GUIDE.md)和[工具边界](../references/mcp-tooling.md)。MCP在指定工作区的`.codex/config.toml`配置，依赖在该工作区独立安装并锁版本；Skill ZIP不捆绑第三方服务器。宿主重新读取项目配置后核对工具可见性。`cwd`是工作目录，不是文件访问隔离。v3迁移保留v2回退点，旧检查报告不自动升级为通过。

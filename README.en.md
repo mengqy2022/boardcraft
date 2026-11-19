@@ -22,17 +22,16 @@ Portable rules, review templates, and evidence gates for AI-assisted embedded ha
 **v2.4.2 stable · 2026-11-16:** This release consolidates independent rule-gate/DRC acceptance, six-category engineering reviews, corrected stage validation, and layer/return, decoupling and fabrication guidance. Existing stage records need the newly required evidence; see the summary below and [changelog](CHANGELOG.md).
 
 <!-- release:start -->
-**[v2.4.2](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.2) · 2026-11-16**
+**[v3.0.0](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v3.0.0) · 2026-11-19**
 
-- Add PCB-V09 reviews for electrical connectivity, power integrity, signal integrity, EMC risk, thermal, and fabrication/assembly; select reviews, calculations, simulation and measurements proportionately to project risk and state their limits.
-- Correct the PCB-V07 stage checker: require RULE_GATE and PCB-P09/P10/P11 at layout/final, plus PI/SI/EMC/THERMAL and existing evidence at final. Neither the rule gate nor final DRC can be waived as not applicable. Re-review incomplete or stale records rather than bulk-marking them passed.
-- Add PCB-V08: run the rule gate and current-revision EDA DRC independently, retain separate evidence, and require both to pass. Coverage and freshness checks do not replace engineering judgment.
-- Consolidate three PCB article batches with focused checks against TI ADS8860, SLVA680A and JLCPCB. Strengthen complete supply/return and commutation loops, ADC settling, ESD discharge, clock/differential timing, and via-in-pad fabrication; reject context-free numerical rules and diagram rankings. Distribute original summaries and source links only.
-- Clarify actual SIGNAL/PLANE layer semantics, documented regular power zones and four-SIGNAL-layer boards under PCB-P09/P10. Select the reference from the actual differential routing layer and calculate 90 ohm geometry from the fabrication stackup.
-- Extend PCB-P11 mechanical baselines, PCB-V02 Arial/silkscreen clearances and PCB-V04 separate same-net solder lands; refresh templates, bilingual documentation and portable packages.
-- Upgrade: existing stage records need newly required applicable items and current-revision evidence. Preserve rule identifiers and JSON structure. No user PCB changes, retroactive board approvals, or claims of DRC, measured performance or fabrication release.
+- Add evidence-backed component/net inventories and composable task modules. Unknown high-speed, RF and FPC classifications remain unresolved instead of silently disabling checks.
+- Add a read-only rule router and snapshot/coverage validator, with regression tests for mixed boards, missing evidence, stale snapshots and tampered module selections. Routing is separate from native DRC and engineering acceptance.
+- Add silkscreen, RF and FPC review entrypoints, triaging context-dependent manufacturing numbers and rejecting unsupported universal claims. Original attachments and third-party images are excluded.
+- Document workspace-scoped rftools 2.11.3 and pinned drawio MCP integration, local calculation defaults, remote-service boundaries, observed version mismatch and placeholder SVG export.
+- Add a real EasyEDA button LED tutorial with component explanations, electrical calculations, wiring/routing replay GIFs and a bounded capability assessment. Refresh bilingual documentation, migration and checksummed release packaging.
+- Preserve existing rule IDs and independent V07/V08/V09 reviews. No retroactive project approvals, RF/FPC board validation, fabricated measurement results or manufacturing release claims.
 
-[All changes](CHANGELOG.md) · [Release assets and checksums](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v2.4.2)
+[All changes](CHANGELOG.md) · [Release assets and checksums](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v3.0.0)
 <!-- release:end -->
 
 ## What this provides
@@ -120,3 +119,7 @@ Release summaries in both READMEs are generated from the version metadata and ch
 ## License and attribution
 
 Documentation and original helper code are licensed under [CC BY-SA 4.0](LICENSE). Preserve attribution, including SparkFun Electronics / jimblom, as recorded in the [sources](references/sources.md). Vendor documents, plugins, and original engineering projects retain their respective rights and are not relicensed by this repository.
+
+## Version 3 guide and example
+
+See the [module routing and migration guide](docs/V3_GUIDE.md) and [EasyEDA button LED tutorial](docs/DEMO.md), including actual EDA wiring GIFs and a scoped capability assessment. Classifications require evidence; routing, native DRC and engineering review remain independent. RF/FPC modules provide review entrypoints, not universal validated templates.

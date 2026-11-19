@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "feature_modules": {
+    "power": "power",
+    "high_speed": "high-speed",
+    "differential": "high-speed",
+    "crystal": "crystal",
+    "analog": "analog",
+    "switching_power": "switching-power",
+    "rf": "rf",
+    "fpc": "fpc"
+  },
+  "modules": {
+    "common": {
+      "references": [
+        "references/design-workflow.md"
+      ],
+      "rules": [
+        "HW-01–07"
+      ],
+      "trigger": "all hardware tasks",
+      "evidence_required": true
+    },
+    "schematic": {
+      "references": [
+        "references/schematic-style.md",
+        "references/easyeda-schematic.md"
+      ],
+      "rules": [
+        "SCH-01–34"
+      ],
+      "trigger": "schematic editing/review",
+      "evidence_required": true
+    },
+    "pcb": {
+      "references": [
+        "references/layout-manufacturing.md",
+        "references/pcb-stage-review.md",
+        "references/verification.md"
+      ],
+      "rules": [
+        "PCB-V07",
+        "PCB-V08",
+        "PCB-V09",
+        "PCB-P11",
+        "PCB-V04"
+      ],
+      "trigger": "PCB layout/routing/final",
+      "evidence_required": true
+    },
+    "power": {
+      "references": [
+        "references/power-ground.md"
+      ],
+      "rules": [
+        "PCB-L01/L17/L20/L22",
+        "PCB-G06/G08",
+        "PCB-R11/R12"
+      ],
+      "trigger": "PCB supply and complete return review",
+      "evidence_required": true
+    },
+    "silkscreen": {
+      "references": [
+        "references/pcb-silkscreen.md"
+      ],
+      "rules": [
+        "PCB-V02"
+      ],
+      "trigger": "PCB text and manufacturing output",
+      "evidence_required": true
+    },
+    "multilayer": {
+      "references": [
+        "references/layout-manufacturing.md",
+        "references/power-ground.md"
+      ],
+      "rules": [
+        "PCB-P09/P10"
+      ],
+      "trigger": "more than two actual copper layers",
+      "evidence_required": true
+    },
+    "high-speed": {
+      "references": [
+        "references/differential-crystal.md"
+      ],
+      "rules": [
+        "PCB-R14/R17"
+      ],
+      "trigger": "edge/timing/interface-qualified high speed",
+      "evidence_required": true
+    },
+    "crystal": {
+      "references": [
+        "references/differential-crystal.md"
+      ],
+      "rules": [
+        "PCB-L18/L19"
+      ],
+      "trigger": "oscillator sensitive loop",
+      "evidence_required": true
+    },
+    "analog": {
+      "references": [
+        "references/power-ground.md",
+        "references/verification.md"
+      ],
+      "rules": [
+        "PCB-V09"
+      ],
+      "trigger": "sensitive analog signal path",
+      "evidence_required": true
+    },
+    "switching-power": {
+      "references": [
+        "references/power-ground.md"
+      ],
+      "rules": [
+        "PCB-L02/L03/L10"
+      ],
+      "trigger": "switching regulator/driver hot loop",
+      "evidence_required": true
+    },
+    "rf": {
+      "references": [
+        "references/pcb-rf.md",
+        "references/mcp-tooling.md"
+      ],
+      "rules": [
+        "RF-REVIEW"
+      ],
+      "trigger": "confirmed RF path or antenna",
+      "evidence_required": true
+    },
+    "fpc": {
+      "references": [
+        "references/pcb-fpc.md"
+      ],
+      "rules": [
+        "FPC-REVIEW"
+      ],
+      "trigger": "confirmed flexible material/mechanics",
+      "evidence_required": true
+    }
+  }
+}

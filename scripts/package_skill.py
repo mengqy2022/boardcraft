@@ -21,6 +21,13 @@ RESOURCE_FILES = {
     "scripts/package_skill.py", "scripts/check_pcb_stage.py", "scripts/test_pcb_stage.py",
     "assets/cover.svg", "docs/INSTALLATION.md",
 }
+RESOURCE_FILES |= {
+    "profiles/catalog.json", "scripts/route_rules.py", "scripts/test_route_rules.py",
+    "references/task-routing.md", "references/mcp-tooling.md", "references/pcb-rf.md",
+    "references/pcb-fpc.md", "references/pcb-silkscreen.md", "docs/V3_GUIDE.md", "docs/DEMO.md",
+    "assets/demo/schematic-wiring.gif", "assets/demo/pcb-routing.gif",
+    "assets/demo/schematic-final.png", "assets/demo/pcb-final.png",
+}
 EXPECTED = ROOT_FILES | RESOURCE_FILES
 MANIFEST = ROOT / "release.json"
 
@@ -66,7 +73,7 @@ def main():
             for rel in sorted(EXPECTED | {"release.json"}):
                 archive.write(ROOT / rel, "embedded-hardware-design/" + rel)
     if args.chatgpt_output:
-        sections = ["SKILL.md", "references/design-workflow.md", "assets/DESIGN_EVIDENCE.md", "references/schematic-style.md", "references/schematic-examples.md", "references/easyeda-schematic.md", "assets/SCHEMATIC_REVIEW.md", "references/layout-manufacturing.md", "references/power-ground.md",
+        sections = ["SKILL.md", "references/task-routing.md", "references/mcp-tooling.md", "references/pcb-rf.md", "references/pcb-fpc.md", "references/pcb-silkscreen.md", "references/design-workflow.md", "assets/DESIGN_EVIDENCE.md", "references/schematic-style.md", "references/schematic-examples.md", "references/easyeda-schematic.md", "assets/SCHEMATIC_REVIEW.md", "references/layout-manufacturing.md", "references/power-ground.md",
                     "references/differential-crystal.md", "references/verification.md", "references/pcb-stage-review.md",
                     "references/sources.md", "assets/PROJECT_RULES.md"]
         parts = [f"# 嵌入式原理图与 PCB 可携带规则 {manifest['version']}\n\n"
