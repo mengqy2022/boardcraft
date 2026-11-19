@@ -4,7 +4,7 @@
 
 发现脚本可能导致文件损坏、敏感信息泄漏等问题时，请优先使用仓库可用的 GitHub 私密漏洞报告入口：
 
-[Report a vulnerability](https://github.com/mengqy2022/embedded-hardware-design-skill/security/advisories/new)
+[Report a vulnerability](https://github.com/mengqy2022/boardcraft/security/advisories/new)
 
 该入口是否可用取决于仓库设置。若不可用，可先提交不包含利用细节和敏感数据的 Issue，请维护者提供私密沟通方式。提供受影响版本、最小复现、影响范围和可行修正建议；不要公开凭据、私人设计或第三方受限文档。
 
