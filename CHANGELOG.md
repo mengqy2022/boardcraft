@@ -4,6 +4,22 @@
 
 - 暂无待发布变更。 / No pending changes.
 
+## 3.0.1 — 2026-11-19
+
+- 更名为 **BoardCraft（板匠）**，调用名 `$boardcraft`；原 `embedded-hardware-design` 的规则编号、阶段门槛与来源保留，提供安装迁移说明。
+- 新增 GD32E230 MCU 开发板 PCB 对比案例：P1和原PCB保持不变，副本保持相同板框／接口基准，记录去耦、晶振、装配、供地与实际DRC差异，附图纸范围GIF。
+- 重排双语首页为“开始使用→选择规则→看例子→检查证据→扩展工具”，新增统一工具引用页，补齐 drawio-engineering-mcp、rftools、Ponytail、mattpocock-skills 与嘉立创EDA工具链接和边界。
+- 按用户明确要求复用现有v3.0.0发布页；先归档原附件及哈希，再更新3.0.1附件与说明。保留原v3.0.0标签，不新增Release、不用旧标签冒充新源码。
+- 案例结果按实际证据填写；计算、EDA检查、制造输出、样机与EMC状态分别报告。
+
+### English
+
+- Rename to **BoardCraft**, invoked as `$boardcraft`, preserving the existing rule IDs, evidence gates and migration history.
+- Add a PCB-only GD32E230 development-board comparison, protecting the original schematic/PCB and matching the board outline and interface baseline; include cropped GIFs and evidence-based differences.
+- Simplify bilingual navigation and document EasyEDA tooling, drawio-engineering-mcp, rftools, Ponytail and mattpocock-skills with upstream links and limitations.
+- Refresh the existing v3.0.0 release page at the user's explicit request after archiving previous assets. Keep the original tag immutable and identify the 3.0.1 attachment edition and source commit separately; create no new Release.
+- Keep calculations, native EDA checks, manufacturing review and unmeasured prototype performance distinct.
+
 ## 3.0.0 — 2026-11-19
 
 - 引入有证据的器件/网络分类、profile目录和任务规则清单；按真实叠层、接口、边沿/传播、RF/FPC对象组合模块，未知项不能默认为不存在。

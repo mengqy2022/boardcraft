@@ -1,6 +1,6 @@
 # 贡献指南 / Contributing
 
-欢迎提交可复现的问题、准确来源支持的规则建议和小范围修正。先搜索 [现有 Issues](https://github.com/mengqy2022/embedded-hardware-design-skill/issues)，使用对应模板说明问题。
+欢迎提交可复现的问题、准确来源支持的规则建议和小范围修正。先搜索 [现有 Issues](https://github.com/mengqy2022/boardcraft/issues)，使用对应模板说明问题。
 
 ## 规则建议需要什么
 

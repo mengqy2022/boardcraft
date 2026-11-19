@@ -57,10 +57,10 @@ git diff --check
 4. 构建到仓库之外，核对 ZIP 内容和校验文件：
 
 ```powershell
-python scripts/build_release.py --output ../embedded-hardware-design-release
+python scripts/build_release.py --output ../boardcraft-release
 ```
 
-产物为版本化 ZIP、稳定名称 `embedded-hardware-design.zip`、`HARDWARE_DESIGN_RULES_CHATGPT.md`、`SHA256SUMS.txt` 和 `RELEASE_NOTES.md`。同版两份 ZIP 字节一致。发布说明来自本版变更记录，包含固定标签安装链接与校验说明。README/安装指南随包分发，贡献模板和 GitHub CI 保留在源码仓库。
+产物为版本化 ZIP、稳定名称 `boardcraft.zip`、`BOARDCRAFT_CHATGPT.md`、`SHA256SUMS.txt` 和 `RELEASE_NOTES.md`。同版两份 ZIP 字节一致。发布说明来自本版变更记录，包含固定标签安装链接与校验说明。README/安装指南随包分发，贡献模板和 GitHub CI 保留在源码仓库。
 
 ## GitHub 发布
 
@@ -89,3 +89,9 @@ python scripts/build_release.py --output ../embedded-hardware-design-release
 The version is read from `provenance.json`. Add the matching top changelog entry with Chinese bullets and an English summary, then regenerate both README release blocks. Run tests and repository checks, review the changes, and refresh the package manifest. Build outside the repository with `scripts/build_release.py`.
 
 Main/PR/tag pushes run checks only. For a reviewed milestone, manually dispatch `CI` from main with `publish_release` enabled and an existing `release_tag`; both check and publish jobs use that tag. Publish immutable versioned assets, the stable ZIP alias, the combined ChatGPT document, and checksums, then verify remote contents. Accumulate routine fixes instead of producing a release per edit. Retain the latest stable release and meaningful historical milestones; archive descriptions/assets and verify hashes before any user-authorized removal, preserving Git tags, commits and the full changelog. Removed asset URLs stop working; historical source remains available by tag.
+
+## v3.0.1：现有页面附件更新的明确例外
+
+用户本次明确要求小升级并更新现有Releases包、不要新增发布页。此次例外流程：归档v3.0.0全部原附件／正文并核对SHA256→3.0.1源码经测试及CI→构建新名称包并附SOURCE_REVISION.json→更新原页面标题／正文和稳定附件→回下载验证。保留原v3.0.0标签及旧版源码不变；页面必须显式区分“原标签”和“当前附件版本／源码提交”。不新增Release，也不删除历史里程碑。
+
+此例外不改为日常默认发布策略；后续仍优先累积改动，在确需里程碑时使用新版本页。旧稳定附件名可在同页保留，以便历史安装链接继续可用，原字节与校验值存本地归档。

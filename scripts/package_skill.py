@@ -22,9 +22,10 @@ RESOURCE_FILES = {
     "assets/cover.svg", "docs/INSTALLATION.md",
 }
 RESOURCE_FILES |= {
-    "profiles/catalog.json", "scripts/route_rules.py", "scripts/test_route_rules.py",
+    "docs/TOOLS.md", "docs/GD32E230.md", "profiles/catalog.json", "scripts/route_rules.py", "scripts/test_route_rules.py",
     "references/task-routing.md", "references/mcp-tooling.md", "references/pcb-rf.md",
     "references/pcb-fpc.md", "references/pcb-silkscreen.md", "docs/V3_GUIDE.md", "docs/DEMO.md",
+    "assets/gd32/pcb-comparison.gif", "assets/gd32/pcb-routing.gif", "assets/gd32/original-cropped.png", "assets/gd32/variant-cropped.png", "docs/RELEASING.md", "CONTRIBUTING.md",
     "assets/demo/schematic-wiring.gif", "assets/demo/pcb-routing.gif",
     "assets/demo/schematic-final.png", "assets/demo/pcb-final.png",
 }
@@ -59,7 +60,7 @@ def main():
         actual[rel] = digest(path)
     if args.refresh:
         version = json.loads((ROOT / "provenance.json").read_text(encoding="utf-8"))["version"]
-        MANIFEST.write_text(json.dumps({"name": "embedded-hardware-design", "version": version,
+        MANIFEST.write_text(json.dumps({"name": "boardcraft", "version": version,
                                       "sha256": actual}, ensure_ascii=False, indent=2) + "\n",
                             encoding="utf-8", newline="\n")
     if not MANIFEST.is_file():
@@ -71,7 +72,7 @@ def main():
         args.output.parent.mkdir(parents=True, exist_ok=True)
         with ZipFile(args.output, "w", ZIP_DEFLATED) as archive:
             for rel in sorted(EXPECTED | {"release.json"}):
-                archive.write(ROOT / rel, "embedded-hardware-design/" + rel)
+                archive.write(ROOT / rel, "boardcraft/" + rel)
     if args.chatgpt_output:
         sections = ["SKILL.md", "references/task-routing.md", "references/mcp-tooling.md", "references/pcb-rf.md", "references/pcb-fpc.md", "references/pcb-silkscreen.md", "references/design-workflow.md", "assets/DESIGN_EVIDENCE.md", "references/schematic-style.md", "references/schematic-examples.md", "references/easyeda-schematic.md", "assets/SCHEMATIC_REVIEW.md", "references/layout-manufacturing.md", "references/power-ground.md",
                     "references/differential-crystal.md", "references/verification.md", "references/pcb-stage-review.md",

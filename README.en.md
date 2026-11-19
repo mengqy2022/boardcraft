@@ -1,125 +1,57 @@
-<div align="center">
+# BoardCraft
 
-![Embedded Hardware Design — Schematic. Layout. Routing. Evidence.](assets/cover.svg)
+**Clear schematics. Deliberate PCB layouts. Traceable evidence.**
 
-# Embedded Hardware Design
+[中文](README.md) · [Installation](docs/INSTALLATION.md) · [Changelog](CHANGELOG.md) · [Tools](docs/TOOLS.md)
 
-**Readable schematics. PCB decisions backed by evidence.**
+BoardCraft is the shorter name for `embedded-hardware-design`. It supplies task-specific hardware rules, review templates and evidence checks. Existing SCH/PCB rule IDs are preserved. EasyEDA is the primary live editor; this Skill does not provide an editor or certify hardware.
 
-Portable rules, review templates, and evidence gates for AI-assisted embedded hardware design.
+## Start
 
-[![Release](https://img.shields.io/github/v/release/mengqy2022/embedded-hardware-design-skill?style=flat-square&color=0f766e)](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/latest)
-[![CI](https://github.com/mengqy2022/embedded-hardware-design-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/mengqy2022/embedded-hardware-design-skill/actions/workflows/ci.yml)
-[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-334155?style=flat-square)](LICENSE)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-334155?style=flat-square)](https://www.python.org/downloads/)
-
-[简体中文](README.md) · **English** · [Installation](docs/INSTALLATION.md) · [Changelog](CHANGELOG.md) · [Open an issue](https://github.com/mengqy2022/embedded-hardware-design-skill/issues/new/choose)
-
-</div>
-
-## Latest release
-
-**v2.4.2 stable · 2026-11-16:** This release consolidates independent rule-gate/DRC acceptance, six-category engineering reviews, corrected stage validation, and layer/return, decoupling and fabrication guidance. Existing stage records need the newly required evidence; see the summary below and [changelog](CHANGELOG.md).
-
-<!-- release:start -->
-**[v3.0.0](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v3.0.0) · 2026-11-19**
-
-- Add evidence-backed component/net inventories and composable task modules. Unknown high-speed, RF and FPC classifications remain unresolved instead of silently disabling checks.
-- Add a read-only rule router and snapshot/coverage validator, with regression tests for mixed boards, missing evidence, stale snapshots and tampered module selections. Routing is separate from native DRC and engineering acceptance.
-- Add silkscreen, RF and FPC review entrypoints, triaging context-dependent manufacturing numbers and rejecting unsupported universal claims. Original attachments and third-party images are excluded.
-- Document workspace-scoped rftools 2.11.3 and pinned drawio MCP integration, local calculation defaults, remote-service boundaries, observed version mismatch and placeholder SVG export.
-- Add a real EasyEDA button LED tutorial with component explanations, electrical calculations, wiring/routing replay GIFs and a bounded capability assessment. Refresh bilingual documentation, migration and checksummed release packaging.
-- Preserve existing rule IDs and independent V07/V08/V09 reviews. No retroactive project approvals, RF/FPC board validation, fabricated measurement results or manufacturing release claims.
-
-[All changes](CHANGELOG.md) · [Release assets and checksums](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/tag/v3.0.0)
-<!-- release:end -->
-
-## What this provides
-
-Implicit selection is explicitly allowed. Use a supported workspace/user instruction to request hardware-task selection and an opening announcement of the actual version and applicable rules, followed by check results and pending items at delivery. See [installation and visible usage](docs/INSTALLATION.md).
-
-A reusable workflow for schematic presentation, PCB layout and routing, and delivery review. Load only the references relevant to the task and reuse the existing design and verified records.
-
-| Area | Design focus | Reference |
-| --- | --- | --- |
-| New designs and electrical changes | Measurable acceptance, shared interfaces, calculations, risk-based analysis, prototype feedback | [HW-01–07](references/design-workflow.md) · [Evidence template](assets/DESIGN_EVIDENCE.md) |
-| Schematics | Functional blocks, symbol/pin consistency, clear wiring and labels | [Schematic style](references/schematic-style.md) |
-| Layout | Protected mechanics, assembly access, connector placement, readable silkscreen | [Layout and manufacturing](references/layout-manufacturing.md) |
-| Power and return | Per-pin decoupling, regulator capacitors, low-inductance loops, actual ground copper | [Power and ground](references/power-ground.md) |
-| Sensitive nets | Differential coupling and reference continuity, necessary matching, crystal loops | [Differential and crystal](references/differential-crystal.md) |
-| Verification | Component/power-pin coverage, current evidence, native DRC, fabrication files | [PCB-V07 gates](references/pcb-stage-review.md) |
-
-Designed for common low-voltage embedded hardware. Device values, stackup, impedance, current capacity, and fabrication requirements are project-specific. High-voltage, isolation, DDR, and RF designs need their dedicated guidance. Most detailed design references are currently in Chinese.
-
-## Quick start
-
-### 1. Install
-
-Download `embedded-hardware-design.zip` from the [latest release](https://github.com/mengqy2022/embedded-hardware-design-skill/releases/latest). For a **first installation** on Windows:
-
-```powershell
-$skillArchive = Join-Path $env:TEMP 'embedded-hardware-design.zip'
-Invoke-WebRequest 'https://github.com/mengqy2022/embedded-hardware-design-skill/releases/latest/download/embedded-hardware-design.zip' -OutFile $skillArchive
-Expand-Archive -LiteralPath $skillArchive -DestinationPath "$env:USERPROFILE/.codex/skills"
-```
-
-Open a new session and check the skill list. Back up an existing installation before replacing it; see [installation and migration](docs/INSTALLATION.md). Release assets include `SHA256SUMS.txt`. For ordinary ChatGPT, upload `HARDWARE_DESIGN_RULES_CHATGPT.md` together with project context.
-
-### 2. Supply the project context
+Download `boardcraft.zip` from the [existing v3 release page](https://github.com/mengqy2022/boardcraft/releases/tag/v3.0.0), back up the previous installation, and follow the [migration guide](docs/INSTALLATION.md).
 
 ```text
-Use $embedded-hardware-design to improve this schematic and PCB.
-Read the current design, project rules, and verification report first.
-For new designs or electrical/interface changes, use HW-01–07 to link requirements, calculations and acceptance; select simulations by risk and report measurement states separately.
-Keep electrical connectivity unchanged unless explicitly authorized; preserve locked mechanics.
-Complete layout and per-power-pin supply/return review before routing.
-Record evidence for the current revision using PCB-V07.
+Use $boardcraft for the current EasyEDA project.
+Inspect the actual components, nets, layer stack and locked mechanical baseline.
+Preserve the original, review placement and each supply/return loop before routing.
+Deliver current-revision checks, evidence and explicitly unmeasured items.
 ```
 
-Provide the current engineering files, device documentation, mechanical constraints, stackup, and fabrication limits. A project `AGENTS.md` can require this skill for schematic and PCB tasks.
+For ordinary ChatGPT, upload `BOARDCRAFT_CHATGPT.md` with the project constraints. It carries rules, not live EDA access.
 
-### 3. Review against current evidence
+## Learn by example
 
-The workflow proceeds from constraints to placement, the layout gate, critical/ordinary routing, ground pours and stitching, native DRC, applicable teardrops, repour, repeat DRC, and final fabrication review.
+| Example | What it exercises |
+|---|---|
+| [Button LED board](docs/DEMO.md) | Components, electrical calculations, schematic, two-layer PCB, real wiring GIFs and honest capability assessment |
+| [GD32E230 PCB comparison](docs/GD32E230.md) | Preserve the schematic/outline, review MCU decoupling and crystals, compare the baseline with a separate PCB revision |
 
-```powershell
-python scripts/check_pcb_stage.py review.json --pcb current.epcb --stage layout
-python scripts/check_pcb_stage.py review.json --pcb current.epcb --stage final
-```
+![PCB routing replay](assets/demo/pcb-routing.gif)
 
-Start with the [review template](assets/PCB_STAGE_REVIEW.json). The checker validates coverage, stage, and evidence hashes. It does not evaluate geometry, prove reviewer conclusions, run native DRC, or certify hardware performance. Historical results apply to their original revision.
+## Use only applicable rules
 
-## Documentation
+Read the current design, classify each component/net with evidence, and generate a task rule profile. Core PCB stages include assembly, supply/return, silkscreen and verification; differential/high-speed, crystals, analog, switching power, multilayer, RF and FPC activate when the actual design requires them. Unknown classifications remain unresolved. [Guide](docs/V3_GUIDE.md) · [Routing contract](references/task-routing.md)
 
-| Task | Start here |
-| --- | --- |
-| Agent workflow | [SKILL.md](SKILL.md) |
-| Schematic checks | [Review template](assets/SCHEMATIC_REVIEW.md) |
-| Learn from schematic examples | [Methods and tradeoffs](references/schematic-examples.md) |
-| EasyEDA schematic automation | [Integration and corrections](references/easyeda-schematic.md) |
-| Define project constraints | [Project rules template](assets/PROJECT_RULES.md) |
-| Verify and deliver | [Verification](references/verification.md) · [Stage review](references/pcb-stage-review.md) |
-| Trace sources | [Source attribution](references/sources.md) · [Provenance](provenance.json) |
-| Optional workflow plugins | [Ponytail and mattpocock-skills](OPTIONAL_PLUGINS.md) |
+Rule routing, stage evidence, workspace gates, native DRC and engineering reviews serve different purposes. Zero DRC errors do not certify decoupling, impedance, return paths, manufacturability or measured performance. [Verification](references/verification.md)
 
-Electrical principles, user preferences, project parameters, and unverified suggestions remain distinct. Decoupling capacitors are normally parallel; a preferred physical capacitor order is subordinate to the exact device guidance, low-inductance loops, and regulator stability.
+## Tools
 
-## Tools and compatibility
+[Tools and upstream links](docs/TOOLS.md) explain EasyEDA API/Bridge, [drawio-engineering-mcp](https://github.com/RFingAdam/drawio-engineering-mcp), [rftools-mcp](https://www.npmjs.com/package/rftools-mcp), [Ponytail](https://github.com/DietrichGebert/ponytail) and [mattpocock-skills](https://github.com/mattpocock/skills). Installation, invocation and verified capabilities are separate; optional plugins are not bundled or automatically executed.
 
-The skill supplies design guidance. Live EasyEDA Pro editing requires a separately installed and connected tool such as `easyeda-api`. Other EDA tools require their own supported native editing and verification workflow. Uploading rules does not permanently train a model or grant EDA control.
+## Current edition
 
-Ponytail and mattpocock-skills are optional. Reviewed methods from the upstream enhanced schematic skill are documented with corrections and scope; this package does not automatically install third-party plugins or include user designs.
+<!-- release:start -->
+**[v3.0.1](https://github.com/mengqy2022/boardcraft/releases/tag/v3.0.0) · 2026-11-19**
 
-## Contributing and maintenance
+- Rename to **BoardCraft**, invoked as `$boardcraft`, preserving the existing rule IDs, evidence gates and migration history.
+- Add a PCB-only GD32E230 development-board comparison, protecting the original schematic/PCB and matching the board outline and interface baseline; include cropped GIFs and evidence-based differences.
+- Simplify bilingual navigation and document EasyEDA tooling, drawio-engineering-mcp, rftools, Ponytail and mattpocock-skills with upstream links and limitations.
+- Refresh the existing v3.0.0 release page at the user's explicit request after archiving previous assets. Keep the original tag immutable and identify the 3.0.1 attachment edition and source commit separately; create no new Release.
+- Keep calculations, native EDA checks, manufacturing review and unmeasured prototype performance distinct.
 
-Use the [issue templates](https://github.com/mengqy2022/embedded-hardware-design-skill/issues/new/choose) for bugs or source-backed rule proposals. Read the [contribution guide](https://github.com/mengqy2022/embedded-hardware-design-skill/blob/main/CONTRIBUTING.md), [release procedure](https://github.com/mengqy2022/embedded-hardware-design-skill/blob/main/docs/RELEASING.md), and [security notes](https://github.com/mengqy2022/embedded-hardware-design-skill/blob/main/SECURITY.md).
+[All changes](CHANGELOG.md) · [Release assets and checksums](https://github.com/mengqy2022/boardcraft/releases/tag/v3.0.0)
+<!-- release:end -->
 
-Release summaries in both READMEs are generated from the version metadata and changelog. CI checks documentation consistency, local links, helper tests, and package hashes before tagged releases are built.
+This update refreshes attachments on the existing v3 page at the user's request. Original assets are archived, the original tag remains immutable, and the new attachment edition/source commit is recorded separately. No extra Release page is created.
 
-## License and attribution
-
-Documentation and original helper code are licensed under [CC BY-SA 4.0](LICENSE). Preserve attribution, including SparkFun Electronics / jimblom, as recorded in the [sources](references/sources.md). Vendor documents, plugins, and original engineering projects retain their respective rights and are not relicensed by this repository.
-
-## Version 3 guide and example
-
-See the [module routing and migration guide](docs/V3_GUIDE.md) and [EasyEDA button LED tutorial](docs/DEMO.md), including actual EDA wiring GIFs and a scoped capability assessment. Classifications require evidence; routing, native DRC and engineering review remain independent. RF/FPC modules provide review entrypoints, not universal validated templates.
+[Contributing](CONTRIBUTING.md) · [Releasing](docs/RELEASING.md) · [Sources](references/sources.md) · [License](LICENSE)

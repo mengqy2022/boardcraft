@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-REPO = "https://github.com/mengqy2022/embedded-hardware-design-skill"
+REPO = "https://github.com/mengqy2022/boardcraft"
 START = "<!-- release:start -->"
 END = "<!-- release:end -->"
 
@@ -35,10 +35,11 @@ def summary(root=ROOT, english=False):
                   if english else
                   f"[待发布变更](CHANGELOG.md#unreleased) · [最新正式版与安装包]({REPO}/releases/latest)")
         return f"{heading}\n\n{en if english else zh}\n\n{footer}"
-    heading = f"**[v{version}]({REPO}/releases/tag/v{version}) · {date}**"
-    footer = (f"[All changes](CHANGELOG.md) · [Release assets and checksums]({REPO}/releases/tag/v{version})"
+    channel = metadata.get("release_channel_tag", f"v{version}")
+    heading = f"**[v{version}]({REPO}/releases/tag/{channel}) · {date}**"
+    footer = (f"[All changes](CHANGELOG.md) · [Release assets and checksums]({REPO}/releases/tag/{channel})"
               if english else
-              f"[完整变更记录](CHANGELOG.md) · [安装包与校验文件]({REPO}/releases/tag/v{version})")
+              f"[完整变更记录](CHANGELOG.md) · [安装包与校验文件]({REPO}/releases/tag/{channel})")
     return f"{heading}\n\n{en if english else zh}\n\n{footer}"
 
 
@@ -69,17 +70,19 @@ def check_readmes(root=ROOT, write=False):
 
 def release_notes(root=ROOT):
     version, date, zh, en = latest_release(root)
-    return (f"# Embedded Hardware Design v{version}\n\n{date}\n\n"
+    metadata = json.loads((root / "provenance.json").read_text(encoding="utf-8"))
+    channel = metadata.get("release_channel_tag", f"v{version}")
+    return (f"# BoardCraft v{version}\n\n{date}\n\n"
             f"## 更新内容\n\n{zh}\n\n## What's changed\n\n{en}\n\n"
             "## 安装 / Install\n\n"
-            f"- [Skill ZIP]({REPO}/releases/download/v{version}/embedded-hardware-design.zip)"
-            " — single `embedded-hardware-design/` directory; back up before upgrading.\n"
-            f"- [ChatGPT rules]({REPO}/releases/download/v{version}/HARDWARE_DESIGN_RULES_CHATGPT.md)"
+            f"- [Skill ZIP]({REPO}/releases/download/{channel}/boardcraft.zip)"
+            " — single `boardcraft/` directory; back up before upgrading.\n"
+            f"- [ChatGPT rules]({REPO}/releases/download/{channel}/BOARDCRAFT_CHATGPT.md)"
             " — upload with your project constraints.\n"
-            f"- [SHA256SUMS.txt]({REPO}/releases/download/v{version}/SHA256SUMS.txt)"
+            f"- [SHA256SUMS.txt]({REPO}/releases/download/{channel}/SHA256SUMS.txt)"
             " — compare the matching filename's SHA-256.\n\n"
-            f"[完整变更 / Changelog]({REPO}/blob/v{version}/CHANGELOG.md) · "
-            f"[安装与升级 / Installation]({REPO}/blob/v{version}/docs/INSTALLATION.md)\n\n"
+            f"[完整变更 / Changelog]({REPO}/blob/main/CHANGELOG.md) · "
+            f"[安装与升级 / Installation]({REPO}/blob/main/docs/INSTALLATION.md)\n\n"
             "本次发布验证规则包与辅助工具；不代表任何板卡通过 ERC/DRC、SI/PI、EMC 或实测。\n"
             "Package checks do not certify a board or replace native EDA and hardware verification.\n")
 

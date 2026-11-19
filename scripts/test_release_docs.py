@@ -73,7 +73,7 @@ class ReleaseDocumentationTests(unittest.TestCase):
             notes = release_notes(root)
             self.assertIn("English change", notes)
             self.assertIn("中文变化", notes)
-            self.assertIn("/v3.0.0/embedded-hardware-design.zip", notes)
+            self.assertIn("/v3.0.0/boardcraft.zip", notes)
             self.assertIn("SHA256SUMS.txt", notes)
             self.assertNotIn("Earlier change", notes)
 
@@ -90,6 +90,19 @@ class ReleaseDocumentationTests(unittest.TestCase):
                 self.assertIn("/releases/latest", text)
                 self.assertNotIn("/releases/tag/v3.0.0", text)
 
+    def test_attachment_edition_uses_existing_page_without_claiming_a_new_tag(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            self.fixture(root)
+            metadata = {"version": "3.0.0", "release_channel_tag": "v2.0.0"}
+            (root / "provenance.json").write_text(json.dumps(metadata), encoding="utf-8")
+            self.assertFalse(check_readmes(root, write=True))
+            text = (root / "README.md").read_text(encoding="utf-8")
+            self.assertIn("[v3.0.0]", text)
+            self.assertIn("/releases/tag/v2.0.0", text)
+            self.assertIn("/download/v2.0.0/boardcraft.zip", release_notes(root))
+            self.assertNotIn("/download/v3.0.0/", release_notes(root))
+
     def test_built_assets_and_checksums_match_the_reviewed_package(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
@@ -100,13 +113,13 @@ class ReleaseDocumentationTests(unittest.TestCase):
                 expected, name = line.split("  ", 1)
                 self.assertEqual(hashlib.sha256((root / name).read_bytes()).hexdigest(), expected)
             version = latest_release()[0]
-            self.assertEqual((root / f"embedded-hardware-design-{version}.zip").read_bytes(),
-                             (root / "embedded-hardware-design.zip").read_bytes())
-            with ZipFile(root / "embedded-hardware-design.zip") as archive:
+            self.assertEqual((root / f"boardcraft-{version}.zip").read_bytes(),
+                             (root / "boardcraft.zip").read_bytes())
+            with ZipFile(root / "boardcraft.zip") as archive:
                 self.assertEqual(set(archive.namelist()),
-                                 {"embedded-hardware-design/" + p for p in EXPECTED | {"release.json"}})
+                                 {"boardcraft/" + p for p in EXPECTED | {"release.json"}})
                 for path in EXPECTED | {"release.json"}:
-                    self.assertEqual(archive.read("embedded-hardware-design/" + path), (ROOT / path).read_bytes())
+                    self.assertEqual(archive.read("boardcraft/" + path), (ROOT / path).read_bytes())
 
 
 if __name__ == "__main__":

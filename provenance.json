@@ -1,5 +1,5 @@
 {
-  "version": "3.0.0",
+  "version": "3.0.1",
   "created": "2026-11-01",
   "origin": "Reviewed workspace standards, existing primary-source records, and observed user-authored layout methods",
   "scope": "Portable schematic and PCB methods with user defaults; private project circuits, screenshots and source documents are excluded",
@@ -90,8 +90,8 @@
     }
   ],
   "updated": "2026-11-19",
-  "name": "embedded-hardware-design",
-  "previous_name": "pcb-design-rules",
+  "name": "boardcraft",
+  "previous_name": "embedded-hardware-design",
   "upstream_skills": [
     {
       "repository": "https://github.com/easyeda/easyeda-enhanced-schematic-skill",
@@ -193,7 +193,7 @@
     "scope": "Require separate workspace rule-gate and current-revision EDA DRC evidence. Permit four SIGNAL layers and SIGNAL-layer power regions when documented as actual copper zones; require PLANE only when native inner-plane semantics are explicitly requested. Do not infer a 90 ohm differential width from a fixed mil value; calculate from the confirmed stackup. Treat locked components, interfaces, board outline and holes as mechanical baselines and compare before/after. No EDA board was modified."
   },
   "release_status": "published",
-  "revision": "20261119-routing-mcp-tutorial",
+  "revision": "20261119-boardcraft-gd32-example",
   "pcb_article_integration": {
     "date": "2026-11-15",
     "source": "User-supplied three batches; original article URL/author not confirmed",
@@ -219,5 +219,20 @@
       "drawio_commit": "8599aeb0d1118ef1d1cc0933812d892030a2c4bf AGPL-3.0-or-later"
     },
     "boundary": "Tool source code, user attachments and private project data excluded from portable package"
+  },
+  "release_channel_tag": "v3.0.0",
+  "previous_names": [
+    "pcb-design-rules",
+    "embedded-hardware-design"
+  ],
+  "brand_migration": {
+    "scope": "Shorter BoardCraft name; existing rule IDs and meanings preserved; GD32E230 PCB-only comparison example",
+    "release_policy": "User explicitly requested existing v3.0.0 release page refreshed after archiving original assets; old tag remains immutable. Attachment edition and source commit recorded separately."
+  },
+  "example_gd32": {
+    "source": "LCSC development board original P1 and PCB, preserved in user workspace; official origin verified",
+    "scope": "PCB-only four-layer comparison, actual native DRC and netlist evidence, no prototype or 90-ohm certification",
+    "original_project": "https://oshwhub.com/li-chuang-kai-fa-ban/li-chuang-gd32e230-zui-xiao-xi-tong-ban",
+    "license_boundary": "Original project GPL3.0 label coexists with platform use/reprint clauses; original circuit is not under this rule repository license. Full EDA/vendor documents stay local."
   }
 }

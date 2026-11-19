@@ -65,20 +65,21 @@ jobs:
       - name: Build matching tagged release
         env:
           RELEASE_TAG: ${{ inputs.release_tag }}
-          RELEASE_OUTPUT: ${{ runner.temp }}/embedded-hardware-design-release
+          RELEASE_OUTPUT: ${{ runner.temp }}/boardcraft-release
         run: python scripts/build_release.py --tag "$RELEASE_TAG" --output "$RELEASE_OUTPUT"
       - name: Publish release and checksummed assets
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           RELEASE_TAG: ${{ inputs.release_tag }}
-          RELEASE_OUTPUT: ${{ runner.temp }}/embedded-hardware-design-release
+          RELEASE_OUTPUT: ${{ runner.temp }}/boardcraft-release
         run: >-
           gh release create "$RELEASE_TAG"
           --verify-tag
-          --title "Embedded Hardware Design $RELEASE_TAG"
+          --title "BoardCraft $RELEASE_TAG"
           --notes-file "$RELEASE_OUTPUT/RELEASE_NOTES.md"
-          "$RELEASE_OUTPUT/embedded-hardware-design.zip"
-          "$RELEASE_OUTPUT/embedded-hardware-design-"*.zip
-          "$RELEASE_OUTPUT/HARDWARE_DESIGN_RULES_CHATGPT.md"
+          "$RELEASE_OUTPUT/boardcraft.zip"
+          "$RELEASE_OUTPUT/boardcraft-"*.zip
+          "$RELEASE_OUTPUT/BOARDCRAFT_CHATGPT.md"
           "$RELEASE_OUTPUT/SHA256SUMS.txt"
+          "$RELEASE_OUTPUT/SOURCE_REVISION.json"
