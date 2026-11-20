@@ -26,7 +26,17 @@ For ordinary ChatGPT, upload `BOARDCRAFT_CHATGPT.md` with the project constraint
 | [Button LED board](docs/DEMO.md) | Components, electrical calculations, schematic, two-layer PCB, real wiring GIFs and honest capability assessment |
 | [GD32E230 PCB comparison](docs/GD32E230.md) | Preserve the schematic/outline, review MCU decoupling and crystals, compare the baseline with a separate PCB revision |
 
-![PCB routing replay](assets/demo/pcb-routing.gif)
+### 01 · Button LED board
+
+| Schematic wiring | PCB routing |
+|---|---|
+| ![Button LED schematic wiring replay](assets/demo/schematic-wiring.gif) | ![Button LED PCB routing replay](assets/demo/pcb-routing.gif) |
+
+### 02 · GD32E230 development board
+
+| Original and BoardCraft variant | Placement and routing process |
+|---|---|
+| ![GD32E230 PCB comparison](assets/gd32/pcb-comparison.gif) | ![GD32E230 PCB placement and routing replay](assets/gd32/pcb-routing.gif) |
 
 ## Use only applicable rules
 

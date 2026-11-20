@@ -36,7 +36,17 @@ BoardCraft 是面向 AI 辅助硬件设计的 Skill：组织设计规则、选�
 | 01 · 按键 LED 小板 | 六个器件、限流计算、基础原理图、两层布线、地铜、泪滴及真实检查 | [完整教程与GIF](docs/DEMO.md) |
 | 02 · GD32E230 开发板 | 保持原理图和板框，重做MCU局部布局／供地，比较原版与副本；记录具体得失 | [PCB对比与GIF](docs/GD32E230.md) |
 
-![原理图连线回放](assets/demo/schematic-wiring.gif)
+### 01 · 按键 LED 小板
+
+| 原理图连接 | PCB布线 |
+|---|---|
+| ![按键 LED 原理图连接回放](assets/demo/schematic-wiring.gif) | ![按键 LED PCB布线回放](assets/demo/pcb-routing.gif) |
+
+### 02 · GD32E230 开发板
+
+| 原版与 BoardCraft 副本对比 | 布局与布线过程 |
+|---|---|
+| ![GD32E230 PCB版本对比](assets/gd32/pcb-comparison.gif) | ![GD32E230 PCB布局布线回放](assets/gd32/pcb-routing.gif) |
 
 GIF是实际EDA操作的逐步回放或真实状态对比，裁掉软件功能面板。详细页面标明采集方式和验证范围，不将演示当作样机实测。
 
