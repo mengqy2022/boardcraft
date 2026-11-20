@@ -25,6 +25,7 @@
     "PCB-P09": {"status": "not_checked", "evidence": [], "rationale": ""},
     "PCB-P10": {"status": "not_checked", "evidence": [], "rationale": ""},
     "PCB-P11": {"status": "not_checked", "evidence": [], "rationale": ""},
+    "PCB-P12": {"status": "not_checked", "evidence": [], "rationale": ""},
     "PCB-R14/R17": {"status": "not_checked", "evidence": [], "rationale": ""},
     "PCB-L21": {"status": "not_checked", "evidence": [], "rationale": ""},
     "PCB-V02": {"status": "not_checked", "evidence": [], "rationale": ""},
@@ -34,6 +35,14 @@
     "SI": {"status": "not_checked", "evidence": [], "rationale": ""},
     "EMC": {"status": "not_checked", "evidence": [], "rationale": ""},
     "THERMAL": {"status": "not_checked", "evidence": [], "rationale": ""}
+  },
+  "layer_decision": {
+    "baseline_layer_count": 0,
+    "selected_layer_count": 0,
+    "baseline_basis": "",
+    "candidates": [],
+    "selection_rationale": "",
+    "cost_tradeoff": ""
   },
   "components": {},
   "power_pins": {}

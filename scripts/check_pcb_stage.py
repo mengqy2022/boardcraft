@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 LAYOUT_CHECKS = {
-    "INVENTORY", "RULE_GATE", "PCB-P01", "PCB-P09", "PCB-P10", "PCB-P11",
+    "INVENTORY", "RULE_GATE", "PCB-P01", "PCB-P09", "PCB-P10", "PCB-P11", "PCB-P12",
     "PCB-V04", "PCB-L01/L17/L20", "PCB-L18", "PCB-R18",
 }
 FINAL_CHECKS = LAYOUT_CHECKS | {
@@ -89,7 +89,50 @@ def validate(report_path, current_pcb, expected_stage=None):
         errors.append("checks must be an object")
     required = FINAL_CHECKS if stage == "final" else LAYOUT_CHECKS
     for key in sorted(required):
-        reviewed(key, checks.get(key), allow_na=key not in {"INVENTORY", "RULE_GATE", "PCB-P01", "PCB-V04", "NETLIST", "CONNECTIVITY", "DRC", "PCB-R07", "PCB-V02", "FAB"})
+        reviewed(key, checks.get(key), allow_na=key not in {"INVENTORY", "RULE_GATE", "PCB-P01", "PCB-P12", "PCB-V04", "NETLIST", "CONNECTIVITY", "DRC", "PCB-R07", "PCB-V02", "FAB"})
+    decision = report.get("layer_decision")
+    if not isinstance(decision, dict):
+        errors.append("layer_decision: missing structured layer-count review")
+    else:
+        baseline = decision.get("baseline_layer_count")
+        selected = decision.get("selected_layer_count")
+        if not isinstance(baseline, int) or baseline < 2:
+            errors.append("layer_decision.baseline_layer_count: must be an integer >= 2")
+        if not isinstance(selected, int) or selected < 2:
+            errors.append("layer_decision.selected_layer_count: must be an integer >= 2")
+        for field in ("baseline_basis", "selection_rationale", "cost_tradeoff"):
+            if not isinstance(decision.get(field), str) or not decision[field].strip():
+                errors.append(f"layer_decision.{field}: required")
+        candidates = decision.get("candidates")
+        if not isinstance(candidates, list):
+            candidates = []
+            errors.append("layer_decision.candidates: must be a list")
+        by_count = {}
+        for candidate in candidates:
+            if not isinstance(candidate, dict):
+                errors.append("layer_decision.candidates: entries must be objects")
+                continue
+            count = candidate.get("layer_count")
+            if not isinstance(count, int) or count < 2 or count in by_count:
+                errors.append("layer_decision.candidates: layer_count must be unique and >= 2")
+                continue
+            by_count[count] = candidate
+            if candidate.get("status") not in {"feasible", "infeasible"}:
+                errors.append(f"layer_decision.candidates[{count}]: status must be feasible or infeasible")
+            refs = candidate.get("evidence")
+            if not isinstance(refs, list) or not refs or any(not isinstance(ref, str) or ref not in paths or ref in {"pcb", "inventory"} for ref in refs):
+                errors.append(f"layer_decision.candidates[{count}]: requires verified evidence")
+            blockers = candidate.get("blocking_constraints")
+            if candidate.get("status") == "infeasible" and (not isinstance(blockers, list) or not blockers or any(not isinstance(item, str) or not item.strip() for item in blockers)):
+                errors.append(f"layer_decision.candidates[{count}]: infeasible result needs concrete blocking_constraints")
+        if isinstance(baseline, int) and baseline >= 2:
+            if baseline not in by_count:
+                errors.append("layer_decision.candidates: baseline layer count must be evaluated")
+            elif isinstance(selected, int) and selected > baseline and by_count[baseline].get("status") != "infeasible":
+                errors.append("layer_decision: adding layers requires the baseline candidate to be infeasible")
+        if isinstance(selected, int) and selected >= 2:
+            if selected not in by_count or by_count[selected].get("status") != "feasible":
+                errors.append("layer_decision: selected layer count must have a feasible candidate review")
     for key in ("components", "power_pins"):
         values = inventory.get(key)
         if not isinstance(values, list) or any(not isinstance(v, str) or not v.strip() for v in values):

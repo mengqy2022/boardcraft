@@ -51,15 +51,13 @@ Rule routing, stage evidence, workspace gates, native DRC and engineering review
 ## Current edition
 
 <!-- release:start -->
-**[v3.0.1](https://github.com/mengqy2022/boardcraft/releases/tag/v3.0.0) · 2026-11-19**
+**[v3.0.2 · Unreleased main](https://github.com/mengqy2022/boardcraft/tree/main) · 2026-11-20**
 
-- Rename to **BoardCraft**, invoked as `$boardcraft`, preserving the existing rule IDs, evidence gates and migration history.
-- Add a PCB-only GD32E230 development-board comparison, protecting the original schematic/PCB and matching the board outline and interface baseline; include cropped GIFs and evidence-based differences.
-- Simplify bilingual navigation and document EasyEDA tooling, drawio-engineering-mcp, rftools, Ponytail and mattpocock-skills with upstream links and limitations.
-- Refresh the existing v3.0.0 release page at the user's explicit request after archiving previous assets. Keep the original tag immutable and identify the 3.0.1 attachment edition and source commit separately; create no new Release.
-- Keep calculations, native EDA checks, manufacturing review and unmeasured prototype performance distinct.
+- Add PCB-P12 for layer-count feasibility and cost justification: use the current layer count as the baseline for existing boards, start new boards from the lowest feasible count, and require concrete lower-layer blockers, critical-channel trial routing/calculation or fabrication evidence, alternatives and cost impact before adding layers.
+- Extend the stage checker with a structured `layer_decision` field and behavioral tests; a layout is blocked when candidate evidence is missing or four layers are selected while two layers remain feasible.
+- Keep the GD32E230 four-layer copy as a multilayer exploration comparison, not as evidence that the two-layer board was infeasible or cost-optimized.
 
-[All changes](CHANGELOG.md) · [Release assets and checksums](https://github.com/mengqy2022/boardcraft/releases/tag/v3.0.0)
+[All changes](CHANGELOG.md#unreleased) · [Latest published release](https://github.com/mengqy2022/boardcraft/releases/latest)
 <!-- release:end -->
 
 This update refreshes attachments on the existing v3 page at the user's request. Original assets are archived, the original tag remains immutable, and the new attachment edition/source commit is recorded separately. No extra Release page is created.

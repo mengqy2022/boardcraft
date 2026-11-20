@@ -2,7 +2,23 @@
 
 ## Unreleased
 
-- 暂无待发布变更。 / No pending changes.
+- 规则维护继续累计到下一里程碑；本次板层可行性门槛记录在 3.0.2 待发布版本中，不创建新的 Release。
+
+### English
+
+- Routine changes continue to accumulate toward the next milestone; the layer-feasibility gate is recorded in the unreleased 3.0.2 version and creates no new Release.
+
+## 3.0.2 — 2026-11-20
+
+- 新增 PCB-P12 板层数可行性与成本门槛：既有板以当前层数为基线，新板先评估最低可行层数；增加层数必须有低层方案的具体阻碍、关键通道试布/计算或制造依据、替代方案及成本影响。
+- 阶段检查器新增 `layer_decision` 结构化字段和行为测试；没有层数候选证据，或二层可行却直接选择四层时，布局阶段不通过。
+- GD32E230 案例的四层副本保留为多层探索对照，不能被解释为成本优化或二层不可行的证明。
+
+### English
+
+- Add PCB-P12 for layer-count feasibility and cost justification: use the current layer count as the baseline for existing boards, start new boards from the lowest feasible count, and require concrete lower-layer blockers, critical-channel trial routing/calculation or fabrication evidence, alternatives and cost impact before adding layers.
+- Extend the stage checker with a structured `layer_decision` field and behavioral tests; a layout is blocked when candidate evidence is missing or four layers are selected while two layers remain feasible.
+- Keep the GD32E230 four-layer copy as a multilayer exploration comparison, not as evidence that the two-layer board was infeasible or cost-optimized.
 
 ## 3.0.1 — 2026-11-19
 

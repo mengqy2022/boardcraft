@@ -1,16 +1,16 @@
 {
-  "version": "3.0.1",
+  "version": "3.0.2",
   "created": "2026-11-01",
   "origin": "Reviewed workspace standards, existing primary-source records, and observed user-authored layout methods",
   "scope": "Portable schematic and PCB methods with user defaults; private project circuits, screenshots and source documents are excluded",
   "source_inputs": [
     {
       "path": "engineering/standards/PCB_RULE_PROFILE.md",
-      "sha256": "dc87178e21ea1649916f6bc25571cd7d5103f3c513f8a0aba8b195cd08c0fb88"
+      "sha256": "0351f7de69dde6b141a93c0bd60e421f6c514a2a8955259b36c3f6f8a1cdb658"
     },
     {
       "path": "engineering/standards/PCB_LAYOUT_ROUTING.md",
-      "sha256": "5c0b30404ae71bba634db26258dcc1d53912b2a91cea137597090f0166405c5f"
+      "sha256": "cc8c0d180360d6043a3c216a18d457e620ca9b624aeb5de366c2085e76470c61"
     },
     {
       "path": "engineering/standards/SOURCES.md",
@@ -18,7 +18,7 @@
     },
     {
       "path": "engineering/WORKFLOW.md",
-      "sha256": "37411239c6f76ce360a099e5797ecb58605d1c83e8d089ab2e447c4a40aeb18e"
+      "sha256": "a43a141a7963adfca99eaa8252b2ae8939842948ddfa1721f5052606207b37c8"
     },
     {
       "path": "engineering/notes/PCB_LAYOUT_RULES_RESEARCH_20261028.md",
@@ -30,7 +30,7 @@
     },
     {
       "path": "engineering/PROJECT_TEMPLATE/PCB_REVIEW.md",
-      "sha256": "10b6b1beb2105ba8f6cd57ec68413934c730e5f588520f4f402b5066ed45d9bf"
+      "sha256": "a0c0b2aeab41078261de1ed18137eeccb5019ad8d61719db4834709dd23a3a43"
     },
     {
       "path": "engineering/tools/check_pcb_rule_gate.py",
@@ -58,7 +58,7 @@
     },
     {
       "path": "engineering/standards/PCB_STAGE_REVIEW.md",
-      "sha256": "8973fdd94ec72ca7ca6319637747f3866018b959dc2580baef53aee7cf7d68a3"
+      "sha256": "b9385d2351831ceeec8c5fdd2e83f15b35928e8a57bf40979a9323e5beaf1fc6"
     },
     {
       "path": "engineering/PROJECT_TEMPLATE/PCB_STAGE_REVIEW.json",
@@ -89,7 +89,7 @@
       "sha256": "d6cec3e1f622ef73ab77763e9f47ebf2e818adf6b561a47c4ba7621503986e2e"
     }
   ],
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "name": "boardcraft",
   "previous_name": "embedded-hardware-design",
   "upstream_skills": [
@@ -192,8 +192,8 @@
     "source": "User clarification during PCB3_1 review",
     "scope": "Require separate workspace rule-gate and current-revision EDA DRC evidence. Permit four SIGNAL layers and SIGNAL-layer power regions when documented as actual copper zones; require PLANE only when native inner-plane semantics are explicitly requested. Do not infer a 90 ohm differential width from a fixed mil value; calculate from the confirmed stackup. Treat locked components, interfaces, board outline and holes as mechanical baselines and compare before/after. No EDA board was modified."
   },
-  "release_status": "published",
-  "revision": "20261119-boardcraft-gd32-example",
+  "release_status": "unreleased",
+  "revision": "20261120-boardcraft-layer-decision-gate",
   "pcb_article_integration": {
     "date": "2026-11-15",
     "source": "User-supplied three batches; original article URL/author not confirmed",

@@ -22,6 +22,13 @@ class StageReviewTests(unittest.TestCase):
                 "schema_version": 1, "project": "test", "revision": "test", "stage": "final",
                 "artifacts": {k: {"path": p.name, "sha256": digest(p)} for k, p in {"pcb": pcb, "inventory": inv, "review": evidence}.items()},
                 "checks": {k: copy.deepcopy(passed) for k in FINAL_CHECKS},
+                "layer_decision": {
+                    "baseline_layer_count": 2, "selected_layer_count": 2,
+                    "baseline_basis": "Original board is two layers",
+                    "candidates": [{"layer_count": 2, "status": "feasible", "blocking_constraints": [], "evidence": ["review"]}],
+                    "selection_rationale": "Two layers meet the design constraints",
+                    "cost_tradeoff": "No additional layer cost",
+                },
                 "components": {k: copy.deepcopy(passed) for k in ["U1", "C1"]},
                 "power_pins": {"U1.4": copy.deepcopy(passed)},
             }
@@ -52,6 +59,20 @@ class StageReviewTests(unittest.TestCase):
             check(no_si_required, True)
             no_si_required["checks"]["SI"]["evidence"] = []
             check(no_si_required)
+            missing_layer_decision = copy.deepcopy(report)
+            del missing_layer_decision["layer_decision"]
+            check(missing_layer_decision)
+            unjustified_extra_layers = copy.deepcopy(report)
+            unjustified_extra_layers["layer_decision"]["selected_layer_count"] = 4
+            unjustified_extra_layers["layer_decision"]["candidates"].append({
+                "layer_count": 4, "status": "feasible", "blocking_constraints": [], "evidence": ["review"],
+            })
+            check(unjustified_extra_layers)
+            justified_extra_layers = copy.deepcopy(unjustified_extra_layers)
+            justified_extra_layers["layer_decision"]["candidates"][0]["status"] = "infeasible"
+            justified_extra_layers["layer_decision"]["candidates"][0]["blocking_constraints"] = ["Critical net cannot escape without breaking mechanical clearance"]
+            justified_extra_layers["layer_decision"]["selection_rationale"] = "Four layers avoid the documented escape conflict"
+            check(justified_extra_layers, True)
             self.assertTrue(validate(target, pcb, "layout"))
             layout = copy.deepcopy(report)
             layout["stage"] = "layout"

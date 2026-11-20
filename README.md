@@ -81,15 +81,13 @@ GIF是实际EDA操作的逐步回放或真实状态对比，裁掉软件功能�
 ## 本次更新
 
 <!-- release:start -->
-**[v3.0.1](https://github.com/mengqy2022/boardcraft/releases/tag/v3.0.0) · 2026-11-19**
+**[v3.0.2 · main 待发布](https://github.com/mengqy2022/boardcraft/tree/main) · 2026-11-20**
 
-- 更名为 **BoardCraft（板匠）**，调用名 `$boardcraft`；原 `embedded-hardware-design` 的规则编号、阶段门槛与来源保留，提供安装迁移说明。
-- 新增 GD32E230 MCU 开发板 PCB 对比案例：P1和原PCB保持不变，副本保持相同板框／接口基准，记录去耦、晶振、装配、供地与实际DRC差异，附图纸范围GIF。
-- 重排双语首页为“开始使用→选择规则→看例子→检查证据→扩展工具”，新增统一工具引用页，补齐 drawio-engineering-mcp、rftools、Ponytail、mattpocock-skills 与嘉立创EDA工具链接和边界。
-- 按用户明确要求复用现有v3.0.0发布页；先归档原附件及哈希，再更新3.0.1附件与说明。保留原v3.0.0标签，不新增Release、不用旧标签冒充新源码。
-- 案例结果按实际证据填写；计算、EDA检查、制造输出、样机与EMC状态分别报告。
+- 新增 PCB-P12 板层数可行性与成本门槛：既有板以当前层数为基线，新板先评估最低可行层数；增加层数必须有低层方案的具体阻碍、关键通道试布/计算或制造依据、替代方案及成本影响。
+- 阶段检查器新增 `layer_decision` 结构化字段和行为测试；没有层数候选证据，或二层可行却直接选择四层时，布局阶段不通过。
+- GD32E230 案例的四层副本保留为多层探索对照，不能被解释为成本优化或二层不可行的证明。
 
-[完整变更记录](CHANGELOG.md) · [安装包与校验文件](https://github.com/mengqy2022/boardcraft/releases/tag/v3.0.0)
+[待发布变更](CHANGELOG.md#unreleased) · [最新正式版与安装包](https://github.com/mengqy2022/boardcraft/releases/latest)
 <!-- release:end -->
 
 ## 维护与贡献
